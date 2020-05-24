@@ -1,0 +1,75 @@
+page {
+  height: 100%;
+}
+
+.tip {
+  text-align: center;
+  padding: 20rpx 0;
+  font-size: 14px;
+  border-bottom: 1px solid #f1f1f1;
+}
+
+.content {
+  flex: auto;
+  display: flex;
+  flex-flow: column;
+  justify-content: space-between;
+}
+
+.record-content {
+  flex: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.record-wrapper {
+  position: relative;
+  box-sizing: border-box;
+  height: 300rpx;
+  width: 300rpx;
+  padding: 30rpx;
+}
+
+.record-bg {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  border-radius: 50%;
+  opacity: 0.5;
+  z-index: 1;
+}
+
+.record-bg-breathing {
+  -webkit-animation-timing-function:ease-in-out;
+	-webkit-animation-name:breathing;
+	-webkit-animation-duration: 1200ms;
+	-webkit-animation-iteration-count:infinite;
+	-webkit-animation-direction:alternate;
+}
+
+@keyframes breathing
+{
+  0% { opacity: .1;}
+  100% { opacity: .5;}
+}
+
+
+.record-btn {
+  box-sizing: border-box;
+  height: 100%;
+  width: 100%;
+  padding: 20rpx;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.record-icon {
+  width: 100rpx;
+  height: 100rpx;
+  z-index: 100;
+}

@@ -1,0 +1,17 @@
+@import '../../app.wxss';
+
+.message .message-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.message .weui-cell {
+  padding: 36rpx;
+}
+.message .weui-cells {
+  margin-top: 0rpx;
+}
+.iconfont {
+  width: 40rpx;
+  height: 40rpx;
+}

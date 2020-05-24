@@ -1,0 +1,81 @@
+<view class="comment-container">
+  <!-- 头像 -->
+  <navigator url="/pages/user/user?id={{comment.author_info.user_id}}" class="comment-left">
+    <image class="avatar" src="{{comment.author_info.avatar}}" />
+  </navigator>
+  <view class="flex-auto font-14">
+    <view class="flex flex-between">
+      <view class="name">
+        {{comment.author_info.nickname}}
+      </view>
+      <text class="floor">{{comment.floor}}楼</text>
+    </view>
+
+    <!-- 内容 -->
+    <view
+      class="mt-10"
+      bindtap="goCommentView"
+      data-parentid="{{comment.comment_id}}"
+    >
+      <rich-text>{{content}}</rich-text>
+    </view>
+    <view class="extend">
+      <view class="mt-10" wx:if="{{comment.comment_type === 1}}">
+        <image
+          class="comment-image" 
+          mode="aspectFill"
+          src="{{comment.attachment_list.filename}}?imageView2/1/w/200/h/100/format/jpg"
+          bindtap="previewImage"
+          data-url="{{comment.attachment_list.filename}}"
+        />
+      </view>
+      <view class="mt-10 scale08" wx:if="{{comment.comment_type === 2}}">
+        <audio
+          poster="{{comment.author_info.avatar}}"
+          name="语音"
+          author="{{comment.author_info.nickname}}"
+          src="{{comment.attachment_list.filename}}"
+          controls
+        ></audio>
+      </view>
+      <view class="time">{{dateline}}</view>
+
+      <!-- 子回复 -->
+      <view wx:if="{{comment.son}}" class="comment-son mt-20">
+        <block wx:for="{{commentSon}}" wx:key="{{item.comment_id}}">
+          <view class="comment-son-item">
+            <view>
+              <text class="name">{{item.child_author_info.nickname}}</text>
+              <text> 回复 </text>
+              <text class="name">{{item.child_receiver_info.nickname}}</text>
+              <text>：</text>
+              <text
+                bindtap="goCommentView"
+                data-parentid="{{item.comment_id}}"
+              >{{item.content}}</text>
+            </view>
+            <view class="mt-10" wx:if="{{item.comment_type === 1}}">
+              <image
+                class="comment-image"
+                mode="aspectFill"
+                src="{{item.attachment_list.filename}}?imageView2/1/w/200/h/100/format/jpg"
+                bindtap="previewImage"
+                data-url="{{item.attachment_list.filename}}"
+              />
+            </view>
+            <view class="mt-10 scale08" wx:if="{{item.comment_type === 2}}">
+              <audio
+                poster="{{item.child_author_info.avatar}}"
+                name="语音"
+                author="{{item.child_author_info.nickname}}"
+                src="{{item.attachment_list.filename}}"
+                controls
+              ></audio>
+            </view>
+          </view>
+          <view class="time">{{item.created_at}}</view>
+        </block>
+      </view>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,76 @@
+<view class="container-max">
+  <view class="main-container">
+    <view class="user-header bg-white">
+      <!-- 用户信息 -->
+      <view class="user-info flex">
+        <image class="user-avatar" src="{{userInfo.avatar}}" />
+        <view>{{userInfo.nickname}}</view>
+      </view>
+    </view>
+
+    <view class="user-block">
+      <navigator url="/pages/user/user?id={{userInfo.user_id}}" class="user-block-item">
+        <view class="flex">
+          <image class="user-block-icon" src="/icons/post.png" />
+          <view class="user-block-name">微帖</view>
+        </view>
+        <view class="flex">
+          <view class="mr-20">{{stats.user_post_count}}</view>
+          <image class="user-block-icon-right" src="/icons/right.svg" />
+        </view>
+      </navigator>
+      <navigator url="/pages/me/meFavorite" class="user-block-item">
+        <view class="flex">
+          <image class="user-block-icon" src="/icons/favorite.png" />
+          <view class="user-block-name">收藏</view>
+        </view>
+        <view class="flex">
+          <view class="mr-20">{{stats.user_favorite_count}}</view>
+          <image class="user-block-icon-right" src="/icons/right.svg" />
+        </view>
+      </navigator>
+      <navigator url="/pages/me/meComment" class="user-block-item">
+        <view class="flex">
+          <image class="user-block-icon" src="/icons/comment.png" />
+          <view class="user-block-name">我的评论</view>
+        </view>
+        <view class="flex">
+          <view class="mr-20">{{stats.user_comment}}</view>
+          <image class="user-block-icon-right" src="/icons/right.svg" />
+        </view>
+      </navigator>
+      <navigator url="/pages/me/meLike" class="user-block-item">
+        <view class="flex">
+          <image class="user-block-icon" src="/icons/like.png" />
+          <view class="user-block-name">我的赞</view>
+        </view>
+        <view class="flex">
+          <view class="mr-20">{{stats.user_like}}</view>
+          <image class="user-block-icon-right" src="/icons/right.svg" />
+        </view>
+      </navigator>
+      <navigator url="/pages/point/point" class="user-block-item" open-type="reLaunch">
+        <view class="flex">
+          <image class="user-block-icon" src="/icons/point.png" />
+          <view class="user-block-name">积分</view>
+        </view>
+        <view class="flex">
+          <view class="mr-20">{{stats.integral}}</view>
+          <image class="user-block-icon-right" src="/icons/right.svg" />
+        </view>
+      </navigator>
+      <navigator url="/pages/me/binding" class="user-block-item">
+        <view class="flex">
+          <image class="user-block-icon" src="/icons/tongbu.png" />
+          <view class="user-block-name">个人信息同步</view>
+        </view>
+        <view class="flex">
+          <image class="user-block-icon-right" src="/icons/right.svg" />
+        </view>
+      </navigator>
+    </view>
+  </view>
+
+  <!-- 版权信息 -->
+  <copyright />
+</view>

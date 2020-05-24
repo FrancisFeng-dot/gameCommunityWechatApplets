@@ -1,0 +1,40 @@
+<view>
+  <view class="header">
+    当前积分：{{integral}}
+  </view>
+
+  <view>
+    <view>
+      <block wx:for="{{goodsIndex}}" wx:key="{{item.goods_id}}" >
+        <navigator url="/pages/point/detail?id={{item.goods_id}}" class="block">
+          <view class="block-item flex">
+            <view class="block-image">
+              <image
+                class="user-avatar"
+                src="{{item.goods_img}}"
+              />
+            </view>
+            <view>
+              <view class="user-nickname">{{item.goods_name}}</view>
+              <view class="user-time red">
+                {{item.exchange_integral}}
+              </view>
+              <view class="user-time">
+                <text class="goods-price grey">￥{{item.goods_price}}</text>
+                <text class="grey">库存：{{item.goods_stock}}</text>
+              </view>
+            </view>
+            <view class="block-right">
+              <view class="change-btn copyright-bg-color">
+                立即兑换
+              </view>
+            </view>
+          </view>
+        </navigator>
+      </block>
+    </view>
+    <load-more loading="{{goodsIndexLoading}}" loaded="{{goodsIndexLoaded}}" />
+  </view>
+
+  <copyright />
+</view>

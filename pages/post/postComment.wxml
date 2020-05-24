@@ -1,0 +1,69 @@
+<view class="bg-white">
+  <view class="pd-20">
+    <textarea
+      class="content-textarea"
+      placeholder-class="content-textarea"
+      placeholder="写评论..."
+      maxlength="{{2000}}"
+      bindinput="handleInputContent"
+    />
+  </view>
+
+  <view wx:if="{{info}}" class="info-wrapper flex">
+    <view class="info-image-box">
+      <image class="info-image" src="{{info.image}}" />
+    </view>
+    <view>
+      <view class="info-name">@{{info.nickname}}</view>
+      <view class="info-message">{{info.content}}</view>
+    </view>
+  </view>
+
+  <!-- 附件 -->
+  <view class="content-attachment flex">
+    <image class="attachment-icon" src="/icons/image.svg" bindtap="chooseImage" />
+    <image class="attachment-icon" src="/icons/audio.svg" bindtap="chooseAudio" />
+  </view>
+
+  <!-- 图片 -->
+  <view wx:if="{{image}}" class="content-image-files">
+    <image
+      class="content-image-item"
+      src="{{image.preview}}"
+      mode="aspectFill"
+    />
+    <view wx:if="{{image.loading}}" class="loading-wrapper">
+      <image
+        class="loading rotate"
+        src="/icons/loading_white.svg"
+      />
+    </view>
+    <image
+      wx:else
+      class="close"
+      src="/icons/close.svg"
+      bindtap="removeClose"
+    />
+  </view>
+
+  <!-- 语音 -->
+  <view wx:if="{{audio}}" class="pd-20">
+    <audio
+      poster="{{audio.poster}}"
+      name="语音"
+      author="{{audio.author}}"
+      src="{{audio.fullFilename}}"
+      controls
+    ></audio>
+  </view>
+
+  <view class="button-wrapper">
+    <form report-submit bindsubmit="sendComment">
+      <button
+        class="sure copyright-text-color copyright-bg-color"
+        form-type="submit"
+      >发送</button>
+    </form>
+    <button class="mt-20" bindtap="goBack">取消</button>
+  </view>
+</view>

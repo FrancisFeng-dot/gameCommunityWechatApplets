@@ -1,0 +1,27 @@
+<import src="/utils/wxParse/wxParse.wxml"/>
+<view>
+  <view class="block">
+    <view class="block-item flex">
+      <view class="block-image">
+        <image
+          class="point-avatar"
+          src="{{detail.goods_img}}"
+        />
+      </view>
+      <view>
+        <view class="point-nickname">{{detail.goods_name}}</view>
+      </view>
+    </view>
+    <view class="block-bottom">
+      <text class="red font-24 mr-10">{{detail.exchange_integral}}</text><text class="red mr-10">积分</text><text class="grey mr-10 goods-price">￥{{detail.goods_price}}</text><text class="grey">剩余：{{detail.goods_stock}}</text>
+    </view>
+  </view>
+  <view class="block">
+    <template is="wxParse" data="{{wxParseData:richContent.nodes}}"/>
+  </view>
+  <view class="fixed">
+    <navigator url="/pages/point/pay?id={{detail.goods_id}}" hover-class="none" class="copyright-bg-color pay-btn">
+      立即兑换
+    </navigator>
+  </view>
+</view>

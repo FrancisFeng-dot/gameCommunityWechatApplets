@@ -1,0 +1,192 @@
+{
+	"description": "项目配置文件。",
+	"setting": {
+		"urlCheck": true,
+		"es6": true,
+		"postcss": true,
+		"minified": true,
+		"newFeature": true
+	},
+	"compileType": "miniprogram",
+	"libVersion": "1.9.1",
+	"appid": "wxaf94dd1aada0abf9",
+	"projectname": "myfans-wxapp",
+	"isGameTourist": false,
+	"condition": {
+		"search": {
+			"current": -1,
+			"list": []
+		},
+		"conversation": {
+			"current": -1,
+			"list": []
+		},
+		"plugin": {
+			"current": -1,
+			"list": []
+		},
+		"game": {
+			"currentL": -1,
+			"list": []
+		},
+		"miniprogram": {
+			"current": 23,
+			"list": [
+				{
+					"id": 0,
+					"name": "user",
+					"pathName": "pages/user/user",
+					"query": "id=137",
+					"scene": "1001"
+				},
+				{
+					"id": -1,
+					"name": "login",
+					"pathName": "pages/auth/login",
+					"query": ""
+				},
+				{
+					"id": 3,
+					"name": "postCreate",
+					"pathName": "pages/post/postCreate",
+					"query": "",
+					"scene": "1001"
+				},
+				{
+					"id": 3,
+					"name": "me",
+					"pathName": "pages/me/me",
+					"query": "to=xxx&id=999",
+					"scene": "1001"
+				},
+				{
+					"id": 4,
+					"name": "post",
+					"pathName": "pages/post/post",
+					"query": "id=283",
+					"scene": "1001"
+				},
+				{
+					"id": -1,
+					"name": "mp",
+					"pathName": "pages/index/mp",
+					"query": "",
+					"scene": "1001"
+				},
+				{
+					"id": 6,
+					"name": "comment",
+					"pathName": "pages/post/postComment",
+					"query": "post_id=304&parent_id=0"
+				},
+				{
+					"id": -1,
+					"name": "meFavorite",
+					"pathName": "pages/me/meFavorite",
+					"query": "",
+					"scene": "1001"
+				},
+				{
+					"id": -1,
+					"name": "meLike",
+					"pathName": "pages/me/meLike",
+					"query": "",
+					"scene": "1001"
+				},
+				{
+					"id": -1,
+					"name": "meComment",
+					"pathName": "pages/me/meComment",
+					"query": "",
+					"scene": "1001"
+				},
+				{
+					"id": -1,
+					"name": "postRecordVoice",
+					"pathName": "pages/post/postRecordVoice",
+					"query": ""
+				},
+				{
+					"id": 11,
+					"name": "reward",
+					"pathName": "pages/reward/reward",
+					"query": "share_user_id=1",
+					"scene": "1001"
+				},
+				{
+					"id": -1,
+					"name": "withdraw",
+					"pathName": "pages/reward/withdraw",
+					"query": "share_user_id=1",
+					"scene": "1001"
+				},
+				{
+					"id": 13,
+					"name": "withdrawAccount",
+					"pathName": "pages/reward/withdrawAccount",
+					"query": "",
+					"scene": "1001"
+				},
+				{
+					"id": -1,
+					"name": "积分",
+					"pathName": "pages/point/point",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "积分详情",
+					"pathName": "pages/point/detail",
+					"query": "id=35"
+				},
+				{
+					"id": -1,
+					"name": "积分购买",
+					"pathName": "pages/point/pay",
+					"query": "id=35"
+				},
+				{
+					"id": -1,
+					"name": "兑换记录",
+					"pathName": "pages/point/exchange",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "拉黑",
+					"pathName": "pages/black/black",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "签到",
+					"pathName": "pages/sign/sign",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "消息",
+					"pathName": "pages/message/message",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "消息点赞",
+					"pathName": "pages/message/like",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "消息点赞",
+					"pathName": "pages/me/binding",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "帖子首页",
+					"pathName": "pages/index/index"
+				}
+			]
+		}
+	}
+}

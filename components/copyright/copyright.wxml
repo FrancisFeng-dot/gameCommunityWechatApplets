@@ -1,0 +1,3 @@
+<view class="footer-container">
+  <text class="copyright-color">{{name}}</text>提供技术支持
+</view>

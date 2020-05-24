@@ -1,0 +1,37 @@
+<view class="container-max bg-white">
+  <view class="tip">
+    <text wx:if="{{timeShow}}">{{timeShow}}</text>
+    <text wx:else>点击开始录音</text>
+  </view>
+  <view class="content">
+    <view class="record-content">
+      <!-- 试听 -->
+      <audio
+        wx:if="{{file}}"
+        poster="{{initData.avatar}}"
+        name="语音试听"
+        author="{{initData.user.nickname}}"
+        src="{{file}}"
+        controls
+      ></audio>
+
+      <!-- 录音 -->
+      <view wx:else class="record-wrapper" bindtap="record">
+        <!-- 背景呼吸 -->
+        <view wx:if="{{recording}}" class="record-bg copyright-bg-color record-bg-breathing"></view>
+        <view wx:else class="record-bg copyright-bg-color"></view>
+
+        <!-- 录音 -->
+        <view class="record-btn copyright-bg-color">
+          <image wx:if="{{recording}}" class="record-icon" src="/icons/stop_white.svg" />
+          <image wx:else class="record-icon" src="/icons/audio_white.svg" />
+        </view>
+      </view>
+    </view>
+    <view class="button-wrapper">
+      <button class="sure copyright-text-color copyright-bg-color" bindtap="complete">完成</button>
+      <button class="mt-20" bindtap="reset">重录</button>
+      <button class="mt-20" bindtap="goBack">取消</button>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,6 @@
+<view class="container-max">
+  <view class="tip">{{notice.title}}</view>
+  <view class="pd-20 font-14">
+    <rich-text nodes="{{notice.content}}" />
+  </view>
+</view>

@@ -1,0 +1,86 @@
+<view class="reward-container">
+  <!-- 分享列表 -->
+  <view wx:if="{{received}}" class="received">
+    <view
+      wx:for="{{received}}"
+      wx:key="{{item}}"
+      class="received-item {{item.animation}}"
+    >
+      <text>{{item.content}}</text>
+    </view>
+  </view>
+
+  <!-- 回首页 -->
+  <view class="bag-flow">
+    <navigator class="go-home" url="/pages/index/index" open-type="switchTab">
+      <image class="icon" src="../../icons/home_active.png"></image>
+      <text>回首页</text>
+    </navigator>
+  </view>
+
+  <view class="card">
+    <image class="card-title" src="/icons/reward_title.png" />
+
+    <!-- 结束 -->
+    <block wx:if="{{end}}" >
+      <image class="reward-end-icon" src="/icons/reward_end_icon.png" />
+      <image class="reward-end-text" src="/icons/reward_end_text.png" />
+    </block>
+
+    <!-- 进行中 -->
+    <block wx:else>
+      <!-- 红包操作 -->
+      <block wx:if="{{isOpened}}">
+        <view wx:if="{{redEnvelope.is_double}}" class="card-operate">
+          <image src="/icons/reward_fan.png" />
+          <view class="card-multiple">
+            <view class="card-multiple-number">{{redEnvelope.red_receive_multiple}}</view>
+            <view class="card-multiple-text">倍</view>
+          </view>
+        </view>
+        <view
+          wx:else
+          class="card-operate"
+        >
+          <button open-type="share" class="btn-none">
+            <image src="/icons/reward_fan_soon.png" />
+          </button>
+        </view>
+      </block>
+      <view
+        wx:else
+        bindtap="setAnimation"
+        animation="{{animationData}}"
+        class="card-operate"
+      >
+        <image src="/icons/reward_open.png" />
+      </view>
+
+      <block wx:if="{{isOpened && redEnvelope}}">
+        <view class="card-tip">获得红包（元）</view>
+        <view class="card-money">{{redEnvelope.red_receive_multiple_fee}}</view>
+        <view class="card-withdraw" bindtap="showQrcode">
+          <image src="/icons/reward_money.svg" />
+          <text>我要提现</text>
+        </view>
+        <!--
+        <navigator class="card-withdraw" url="/pages/reward/withdraw">
+          <image src="/icons/reward_money.svg" />
+          <text>提现测试</text>
+        </navigator>
+        -->
+      </block>
+    </block>
+  </view>
+  <view class="share">
+    <navigator wx:if="{{end}}" url="/pages/index/index" open-type="switchTab">
+      <button class="share-btn flex flex-justify-center" hover-class="share-btn-hover">
+        <text>返回首页</text>
+      </button>
+    </navigator>
+    <button wx:else open-type="share" class="share-btn flex flex-justify-center" hover-class="share-btn-hover">
+      <image class="share-icon" src="/icons/reward_share.svg" />
+      <text>给好友发红包 最高金额翻10倍</text>
+    </button>
+  </view>
+</view>

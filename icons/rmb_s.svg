@@ -1,0 +1,21 @@
+<svg width="10px" height="10px" viewBox="0 0 10 10" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <!-- Generator: Sketch 43.1 (39012) - http://www.bohemiancoding.com/sketch -->
+  <desc>Created with Sketch.</desc>
+  <defs></defs>
+  <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+    <g id="1020首页改版" transform="translate(-134.000000, -313.000000)">
+      <g id="tab2" transform="translate(-1.000000, 302.000000)">
+        <g id="icon-reward2" transform="translate(135.000000, 11.000000)">
+          <circle id="Oval-18" fill="#F04042" cx="5" cy="5" r="5"></circle>
+          <g id="Group-8" transform="translate(3.000000, 2.000000)" stroke="#FFFFFF" stroke-width="0.825" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M0.416666667,2.99621212 L3.55,2.99621212" id="Line"></path>
+            <path d="M0.416666667,4.58712121 L3.55,4.58712121" id="Line"></path>
+            <path d="M1.98412698,3.26136364 L1.98412698,6.44318182" id="Line"></path>
+            <path d="M1.98412698,2.73106061 L3.68480726,0.265151515" id="Line"></path>
+            <path d="M0.283446712,2.73106061 L1.98412698,0.265151515" id="Line" transform="translate(1.133787, 1.498106) scale(-1, 1) translate(-1.133787, -1.498106) "></path>
+          </g>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>

@@ -1,0 +1,55 @@
+<view class="font-14">
+  <view class="header">
+    <view class="back-btn" bindtap="goHome">
+      <image src="/icons/back_bg.svg" class="back-bg" />
+      <text>返回首页</text>
+    </view>
+    <view class="grey font-16">
+      当前积分
+    </view>
+    <view class="font-35">
+      {{integral}}
+    </view>
+  </view>
+  <view class="bg-white">
+    <view class="analysis flex">
+      <view class="analysis-item">
+        <navigator url="/pages/point/goods" hover-class="none" class="flex flex-justify-center">
+          <image src="/icons/point-mall.svg" />积分商城
+        </navigator>
+      </view>
+      <view class="flex font-14" style="color: #f1f1f1;">
+        |
+      </view>
+      <view class="analysis-item">
+        <navigator url="/pages/point/exchange" hover-class="none" class="flex flex-justify-center">
+          <image src="/icons/for-record.svg" />兑换记录
+        </navigator>
+      </view>
+    </view>
+  </view>
+  <view class="pd-20 font-14">
+    积分明细
+  </view>
+  <view>
+    <view>
+      <block wx:for="{{pointsIndex}}" wx:key="{{item.id}}" >
+        <view class="bg-white pd-20 flex" style="border-bottom: 1px solid #f1f1f1;">
+          <view>
+            <view>{{item.behaviorMsg}}</view>
+            <view class="grey">
+              {{item.created_at}}
+            </view>
+          </view>
+          <view class="block-right">
+            <view class="right">
+              {{item.type ? '+' : '-'}}{{item.score}}
+            </view>
+          </view>
+        </view>
+      </block>
+    </view>
+    <load-more loading="{{pointsIndexLoading}}" loaded="{{pointsIndexLoaded}}" />
+  </view>
+  <copyright />
+</view>

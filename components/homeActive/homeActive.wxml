@@ -1,0 +1,24 @@
+<view class="active-user-wrapper">
+  <view wx:if="{{loading}}" class="weui-loadmore">
+    <view class="weui-loading"></view>
+    <view class="weui-loadmore__tips">加载中</view>
+  </view>
+  <view wx:else>
+    <view wx:for="{{activeUserList}}" wx:key="{{item.user_id}}" class="weui-panel__bd">
+      <navigator url="/pages/user/user?id={{item.user_id}}" class="weui-media-box weui-media-box_appmsg" hover-class="weui-cell_active">
+        <view class="user-rank">
+          <image wx:if="{{index === 0}}" class="user-rank-icon" src="/icons/rank1.svg" />
+          <image wx:elif="{{index === 1}}" class="user-rank-icon" src="/icons/rank2.svg" />
+          <image wx:elif="{{index === 2}}" class="user-rank-icon" src="/icons/rank3.svg" />
+          <text wx:else>{{index + 1}}</text>
+        </view>
+        <image class="user-avatar" src="{{item.avatar}}" />
+        <view class="user-nickname">{{item.nickname}}</view>
+        <text class="user-rank" class="header-tag header-level">{{item.member_info.level.curr_level}}</text>
+        <view class="user-go-wrapper">
+          <image class="user-go" src="/icons/right.svg" />
+        </view>
+      </navigator>
+    </view>
+  </view>
+</view>

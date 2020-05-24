@@ -1,0 +1,56 @@
+.block {
+  margin-bottom: 20rpx;
+  background-color: #ffffff;
+  font-size: 14px;
+  padding: 20rpx;
+}
+
+.block .block-item {
+  margin-top: 10rpx;
+  align-items: flex-start;
+  padding-bottom: 20rpx;
+  border-bottom: 1rpx solid #ccc;
+}
+
+.block .point-nickname {
+  font-size: 16px;
+  line-height: 160rpx;
+}
+
+.block .point-time {
+  color: #717171;
+  margin-top: 10rpx;
+}
+
+.block .point-avatar {
+  display: block;
+  height: 160rpx;
+  width: 160rpx;
+}
+
+.block .block-image {
+  width: 160rpx;
+  margin-right: 20rpx;
+}
+.block .block-bottom {
+  padding: 20rpx;
+  padding-bottom: 0;
+}
+.block .goods-price {
+  text-decoration: line-through;
+  margin-right: 20rpx;
+}
+.fixed {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background: #fff;
+  padding: 20rpx 5%;
+}
+.pay-btn {
+  width: 90%;
+  height: 80rpx;
+  line-height: 80rpx;
+  border-radius: 10rpx;
+  text-align: center;
+}

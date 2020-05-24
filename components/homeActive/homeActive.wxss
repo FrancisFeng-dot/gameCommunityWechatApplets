@@ -1,0 +1,58 @@
+@import '../../app.wxss';
+
+.weui-panel__bd {
+  background-color: #ffffff;
+}
+
+.weui-media-box {
+  box-sizing: border-box;
+  height: 124rpx;
+  padding: 0 20rpx;
+}
+
+.user-rank {
+  display: flex;
+  width: 80rpx;
+  height: 70rpx;
+  color: #999;
+  font-size: 26px;
+  align-items: center;
+  justify-content: center;
+}
+
+.user-rank-icon {
+  width: 56rpx;
+  height: 52rpx;
+}
+
+.user-avatar {
+  width: 70rpx;
+  height: 70rpx;
+  border-radius: 50%;
+  margin-right: 20rpx;
+}
+
+.user-nickname {
+  max-width: 300rpx;
+  line-height: 1em;
+  font-size: 16px;
+  margin-right: 20rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.user-go-wrapper {
+  display: flex;
+  justify-content: flex-end;
+  flex: 1;
+}
+
+.user-go {
+  width: 18rpx;
+  height: 18rpx;
+}
+
+.header-tag-wrapper {
+  flex: 1;
+}

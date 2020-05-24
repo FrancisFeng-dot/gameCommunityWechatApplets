@@ -1,0 +1,4 @@
+.copyright-color { color: #198AF3 !important; }
+.copyright-bg-color { background-color: #198AF3 !important; }
+.copyright-border-color { border-color: #198AF3 !important; }
+.copyright-text-color { color: fff !important; }

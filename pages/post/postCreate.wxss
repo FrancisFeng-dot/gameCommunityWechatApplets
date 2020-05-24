@@ -1,0 +1,184 @@
+/* 头部 */
+.header {
+  display: flex;
+  justify-content: space-between;
+  font-size: 18px;
+  color: #b2b2b2;
+  border-bottom: 2rpx solid #eee;
+  padding: 10rpx 20rpx;
+}
+
+.header .title {
+  color: #333333;
+}
+
+/* 输入框 */
+.content-textarea {
+  font-size: 16px;
+}
+
+/* 定位 */
+.content-address {
+  font-size: 12px;
+  padding: 20rpx;
+}
+
+/* 附件按钮 */
+.content-attachment {
+  padding: 30rpx;
+  border-top: 2rpx solid #eee;
+  border-bottom: 2rpx solid #eee;
+}
+
+/* 图片 */
+.content-image-files {
+  padding: 30rpx 20rpx 0;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.content-image-files .weui-uploader__input-box {
+  height: 150rpx;
+  width: 150rpx;
+  margin: 0;
+}
+
+.content-image-files .content-image-wrapper {
+  position: relative;
+  margin-right: 20rpx;
+  margin-bottom: 20rpx;
+}
+
+.content-image-files .content-image-item {
+  height: 150rpx;
+  width: 150rpx;
+  display: block;
+}
+
+/* 视频 */
+.vidoe-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+.vidoe-wrapper .vidoe-image {
+  display: block;
+  width: 100%;
+  height: 300rpx;
+}
+
+.vidoe-wrapper .close {
+  position: absolute;
+  height: 40rpx;
+  width: 40rpx;
+  top: -20rpx;
+  right: -20rpx;
+  opacity: 0.7;
+}
+
+/* 资源操作 */
+.media-file .loading-wrapper {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  z-index: 99;
+  background-color: rgba(0, 0, 0, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  left: 0;
+  top: 0;
+}
+
+.media-file .loading {
+  height: 80rpx;
+  width: 80rpx;
+}
+
+.media-file .close {
+  position: absolute;
+  height: 40rpx;
+  width: 40rpx;
+  top: -20rpx;
+  right: -20rpx;
+  opacity: 0.7;
+}
+
+/**/
+.address-icon {
+  width: 36rpx;
+  height: 36rpx;
+}
+
+.attachment-icon {
+  width: 42rpx;
+  height: 42rpx;
+  margin-right: 40rpx;
+}
+
+.tag-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 14rpx;
+  background-color: #ffffff;
+}
+
+.tag {
+  position: relative;
+  font-size: 14px;
+  margin: 10rpx;
+  color: #717171;
+  text-align: center;
+  padding: 4rpx 20rpx;
+  border-radius: 3px;
+  border: 1px solid rgb(238, 238, 238);
+}
+
+.tag-on {
+  color: #198AF3;
+  border-color: #198AF3;
+}
+
+.tag-icon {
+  position: absolute;
+  height: 20rpx;
+  width: 20rpx;
+  top: -10rpx;
+  right: -10rpx;
+}
+
+.tag-title {
+  padding: 0 20rpx;
+  font-size: 14px;
+}
+
+.audio-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width:100%;
+  height:100%;
+  z-index: 1000;
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+.audio-content {
+  font-size: 16px;
+  box-sizing: border-box;
+  height: 400rpx;
+  background-color: #ffffff;
+  padding: 20rpx;
+}
+
+.audio-operate {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.audio-tip {
+  font-size: 14px;
+}

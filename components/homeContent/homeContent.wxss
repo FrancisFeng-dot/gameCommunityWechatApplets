@@ -1,0 +1,94 @@
+@import '../../app.wxss';
+
+.tag-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 14rpx;
+  background-color: #ffffff;
+}
+
+.tag {
+  position: relative;
+  font-size: 14px;
+  margin: 10rpx;
+  color: #717171;
+  text-align: center;
+  padding: 4rpx 20rpx;
+  border-radius: 3px;
+  border: 1px solid rgb(238, 238, 238);
+}
+
+.tag-on {
+  color: #198AF3;
+  border-color: #198AF3;
+}
+
+.tag-icon {
+  position: absolute;
+  height: 20rpx;
+  width: 20rpx;
+  top: -10rpx;
+  right: -10rpx;
+}
+
+/* 置顶帖 */
+.notice {
+  box-sizing: border-box;
+  margin-top: 20rpx;
+  background-color: #fff;
+  padding: 0 20rpx;
+  font-size: 14px;
+}
+
+.notice .notice-item {
+  display: block;
+  box-sizing: border-box;
+  border-bottom: 1px solid #f1f1f1;
+  height: 90rpx;
+  line-height: 90rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.notice .notice-more {
+  border-bottom: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.notice .notice-more-icon {
+  height: 28rpx;
+  width: 28rpx;
+}
+
+.notice .notice-icon {
+  font-size: 12px;
+  background-color: #f04042;
+  border-radius: 4rpx;
+  padding: 2rpx 6rpx;
+  color: #fff;
+  margin-right: 12rpx;
+}
+
+/* 滑动 */
+.slide-wrapper {
+  margin-top: 20rpx;
+  padding: 0 20rpx;
+}
+
+.slide-swiper {
+  height: 180rpx;
+}
+
+.slide-image {
+  width: 100%;
+  height: 180rpx;
+  border-radius: 8rpx;
+}
+
+.weui-loadmore__tips {
+  color: #999999;
+  background-color: #f2f2f2;
+}

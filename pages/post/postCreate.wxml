@@ -1,0 +1,120 @@
+<view class="bg-white">
+  <!-- 输入框 -->
+  <view class="pd-20">
+    <textarea
+      class="content-textarea"
+      placeholder-class="content-textarea"
+      placeholder="说点什么..."
+      maxlength="{{2000}}"
+      bindinput="handleInputContent"
+    />
+  </view>
+
+  <!-- 定位 TODO -->
+  <!--
+  <view class="content-address flex">
+    <image class="address-icon" src="/icons/address.svg" />
+    <text>定位中...</text>
+  </view>
+  -->
+
+  <!-- 附件 -->
+  <view class="content-attachment flex">
+    <image class="attachment-icon" src="/icons/image.svg" bindtap="chooseImage" />
+    <image class="attachment-icon" src="/icons/audio.svg" bindtap="chooseAudio" />
+    <image class="attachment-icon" src="/icons/video.svg" bindtap="chooseVideo"/>
+  </view>
+
+  <!-- 图片 -->
+  <view wx:if="{{imageList.length > 0}}" class="content-image-files media-file">
+    <view wx:for="{{imageList}}" wx:key="index" class="content-image-wrapper">
+      <image
+        class="content-image-item"
+        src="{{item.preview}}"
+        mode="aspectFill"
+      />
+      <view wx:if="{{item.loading}}" class="loading-wrapper">
+        <image
+          class="loading rotate"
+          src="/icons/loading_white.svg"
+        />
+      </view>
+      <image
+        wx:else
+        class="close"
+        src="/icons/close.svg"
+        bindtap="removeImage"
+        data-index="{{index}}"
+      />
+    </view>
+    <view class="weui-uploader__input-box">
+      <view class="weui-uploader__input" bindtap="chooseImage"></view>
+    </view>
+  </view>
+
+  <!-- 语音 -->
+  <view wx:if="{{audioFilename}}" class="pd-20">
+    <audio
+      poster="{{audioPoster}}"
+      name="语音"
+      author="{{audioAuthor}}"
+      src="{{audioFullFilename}}"
+      controls
+    ></audio>
+  </view>
+
+  <!-- 视频 -->
+  <view wx:if="{{videoImage}}" class="pd-20">
+    <view class="vidoe-wrapper media-file">
+      <image
+        class="vidoe-image"
+        src="{{videoImage}}"
+        mode="aspectFill"
+      />
+      <view wx:if="{{videoLoading}}" class="loading-wrapper">
+        <image
+          class="loading rotate"
+          src="/icons/loading_white.svg"
+        />
+      </view>
+      <image
+        wx:else
+        class="close"
+        src="/icons/close.svg"
+        bindtap="removeVideo"
+      />
+    </view>
+  </view>
+
+
+  <!-- 选择话题 -->
+  <view class="tag-title mt-20">选择话题</view>
+  <view class="tag-wrapper">
+    <view
+      wx:if="{{!isForceTopic}}"
+      class="tag {{postData.topic_id === 0 && 'copyright-color copyright-border-color'}}"
+      data-id="{{0}}" bindtap="tapTag"
+    >全部内容</view>
+    <block wx:for="{{topicList}}" wx:key="{{item.topic_cate_id}}">
+      <view
+        wx:if="{{item.is_pay === 0}}"
+        class="tag {{item.topic_cate_id === postData.topic_id && 'copyright-color copyright-border-color'}}"
+        data-id="{{item.topic_cate_id}}"
+        bindtap="tapTag"
+      >
+        {{item.topic_name}} 
+        <image wx:if="{{item.is_pay}}" class="tag-icon" src="/icons/rmb_s.svg" />
+      </view>
+    </block>
+  </view>
+
+  <view class="button-wrapper">
+    <form report-submit bindsubmit="sendPost">
+      <button
+        class="sure copyright-text-color copyright-bg-color"
+        form-type="submit"
+      >发布</button>
+    </form>
+    <button class="mt-20" bindtap="goHome">取消</button>
+  </view>
+</view>

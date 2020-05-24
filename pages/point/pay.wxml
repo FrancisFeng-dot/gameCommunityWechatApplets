@@ -1,0 +1,80 @@
+<import src="/utils/wxParse/wxParse.wxml"/>
+<view>
+  <view class="title">
+    粉丝圈：{{forumName}}
+  </view>
+  <view class="block">
+    <view class="block-item flex">
+      <view class="block-image">
+        <image
+          class="point-avatar"
+          src="{{detail.goods_img}}"
+        />
+      </view>
+      <view>
+        <view class="point-nickname">{{detail.goods_name}}</view>
+        <view class="grey goods-price">￥{{detail.goods_price}}</view>
+      </view>
+      <view class="block-right">
+        <view class="grey right-point">{{detail.exchange_integral}}积分</view>
+      </view>
+    </view>
+  </view>
+  <view class="block">
+    <view class="block-item flex">
+      <view>
+        数量（个）
+      </view>
+      <view class="block-right">
+        <view class="flex" style="float: right;">
+          <view bindtap="downNum" class="btn-number" style="color: {{goodsNum ===1 ? 'grey' : ''}}">
+            -
+          </view>
+          <view>
+            <input bindinput="changeNum" class="ipt-number" type="number" value="{{goodsNum}}" />
+          </view>
+          <view bindtap="upNum" class="btn-number">
+            +
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view bindtap="choseAdress" class="block">
+    <view wx:if="{{!adress}}" class="block-item flex">
+      <view>
+       个人信息
+      </view>
+      <view class="block-right">
+        <view class="flex grey" style="float: right;">
+          >
+        </view>
+      </view>
+    </view>
+    <view wx:else class="block-item flex">
+      <view>
+        <view class="adress-msg">{{adress.userName}}</view>
+        <view class="grey adress-msg">{{adress.provinceName}}{{adress.cityName}}{{adress.countyName}}{{adress.detailInfo}}</view>
+      </view>
+      <view class="block-right">
+        <view class="grey adress-tel">{{adress.telNumber}}<text style="margin-left: 10rpx;" class="font-18">></text></view>
+      </view>
+    </view>
+  </view>
+  <view class="fixed">
+    <view class="point-show">
+      {{detail.exchange_integral}}积分*{{goodsNum}}份
+    </view>
+    <view class="point-show flex">
+      <view>
+        合计
+      </view>
+      <view class="red point-all">
+        <text class="font-24 mr-10">{{detail.exchange_integral * goodsNum}}</text>积分
+      </view>
+    </view>
+    <view bindtap="goPay" class="copyright-bg-color pay-btn">
+      立即兑换
+    </view>
+  </view>
+</view>

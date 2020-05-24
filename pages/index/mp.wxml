@@ -1,0 +1,11 @@
+<view class="container-max">
+  <view class="tip">点击分享小程序</view>
+  <view>
+    <image
+       class="qr-code"
+       src="{{wxacode}}"
+       bindtap="previewImage"
+       data-url="{{wxacode}}"
+    />
+  </view>
+</view>

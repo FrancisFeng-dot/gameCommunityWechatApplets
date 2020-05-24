@@ -1,0 +1,63 @@
+<view
+  class="home-header"
+  style="background-image: url({{initData.forum_background}}?imageView2/1/w/750/h/300)"
+>
+  <view class="home-header-container">
+    <!-- 搜索 -->
+    <view class="home-header-search">
+      <!-- 二维码 -->
+      <navigator url="/pages/index/mp">
+        <image class="icon-qr" src="/icons/qr_code_white.svg" />
+      </navigator>
+
+      <!-- 搜索框 -->
+      <view class="search-input-wrapper">
+        <view class="weui-search-bar__form">
+          <view wx:if="{{searchInputShowed}}" class="weui-search-bar__box">
+            <icon class="weui-icon-search_in-box" type="search" size="14"></icon>
+
+            <!-- 输入框 -->
+            <input
+              type="text"
+              class="weui-search-bar__input"
+              placeholder="搜索微帖"
+              value="{{searchInputValue}}"
+              focus="{{searchInputShowed}}"
+              bindinput="inputTyping"
+              bindblur="hideInput"
+              bindconfirm="searchPost"
+            />
+            <view class="weui-icon-clear" wx:if="{{searchInputValue.length > 0}}" bindtap="clearInput">
+              <icon type="clear" size="14"></icon>
+            </view>
+          </view>
+          <label class="weui-search-bar-label" wx:if="{{!searchInputShowed}}" bindtap="showSearchInput">
+            <icon class="weui-icon-search" type="search" size="14"></icon>
+            <view class="weui-search-bar__text">{{searchInputPlaceholder}}</view>
+          </label>
+        </view>
+      </view>
+    </view>
+
+    <!-- 粉丝圈信息 -->
+    <view class="home-header-info">
+      <image class="home-header-logo" src="{{initData.forum.logo}}" />
+      <view class="home-header-stats">
+        <view class="home-header-button-wrapper">
+          <button class="home-header-button mr-20" bindtap="sign">
+            <image class="icon-text" src="/icons/sign.svg" />
+            <view>{{ initData.is_sign ? '已签到' : '签到'}}</view>
+          </button>
+          <button open-type="share" class="home-header-button">
+            <image class="icon-text" src="/icons/invitation.svg" />
+            <view>邀请</view>
+          </button>
+        </view>
+        <view style="text-align:right;">
+          <text wx:if="{{initData.is_show_view_count}}" class="mr-20">总浏览 {{initData.forum_view_count}}</text> 
+          <text wx:if="{{initData.is_show_user_count}}">用户数 {{initData.forum_user_count}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

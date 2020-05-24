@@ -1,0 +1,53 @@
+.header {
+  padding: 28rpx;
+  margin-bottom: 20rpx;
+  font-size: 28rpx;
+  background: #fff;
+}
+.block {
+  margin-bottom: 20rpx;
+  background-color: #ffffff;
+  font-size: 14px;
+  padding: 20rpx;
+}
+
+.block .block-item {
+  margin-top: 10rpx;
+  align-items: flex-start;
+}
+
+.block .user-nickname {
+  font-size: 16px;
+}
+
+.block .user-time {
+  color: #717171;
+  margin-top: 10rpx;
+}
+
+.block .user-avatar {
+  display: block;
+  height: 160rpx;
+  width: 160rpx;
+}
+
+.block .block-image {
+  width: 160rpx;
+  margin-right: 20rpx;
+}
+.block .block-right {
+  flex:1;
+  justify-content: flex-end;
+}
+.block .change-btn {
+  line-height: 56rpx;
+  margin-top: 52rpx;
+  text-align: center;
+  border-radius: 10rpx;
+  width: 160rpx;
+  float: right;
+}
+.goods-price {
+  text-decoration: line-through;
+  margin-right: 20rpx;
+}

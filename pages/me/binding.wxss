@@ -1,0 +1,58 @@
+Page {
+  height: 100%;
+}
+
+.container-max {
+  background-color: #ffffff;
+}
+
+.login-button-wrapper {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0 20rpx;
+  margin-top: 160rpx;
+}
+
+.title {
+  background-color: #f2f2f2;
+  font-size: 20px;
+  text-align: center;
+  padding: 20rpx;
+}
+
+.attention {
+  font-size: 14px;
+  background-color: #ffffff;
+  padding: 40rpx 20rpx;
+  color: #a1a1a1;
+}
+
+/* 表单 */
+.form {
+  background-color: #ffffff;
+  padding: 20rpx;
+  font-size: 14px;
+}
+
+.form .label {
+  margin-bottom: 20rpx;
+}
+
+.form .input-wrapper {
+  background-color: #f2f2f2;
+  padding: 10rpx 20rpx;
+  border-radius: 8rpx;
+}
+
+.form .input {
+  background-color: #f2f2f2;
+}
+
+.sure {
+  background-color: #198AF3;
+  color: #ffffff;
+}
+
+.select-old {
+  border: 1px solid #f2f2f2;
+}

@@ -1,0 +1,92 @@
+/* 头部 */
+.header {
+  display: flex;
+  justify-content: space-between;
+  font-size: 18px;
+  color: #b2b2b2;
+  border-bottom: 2rpx solid #eee;
+  padding: 10rpx 20rpx;
+}
+
+.header .title {
+  color: #333333;
+}
+
+/* 展示信息 */
+.info-wrapper {
+  padding: 20rpx;
+  font-size: 16px;
+  align-items: flex-start;
+}
+
+.info-wrapper .info-image-box {
+  width: 160rpx;
+  margin-right: 20rpx;
+}
+
+.info-wrapper .info-image {
+  display: block;
+  height: 160rpx;
+  width: 160rpx;
+}
+
+.info-wrapper .info-message {
+  color: #717171;
+  font-size: 14px;
+}
+
+/* 输入框 */
+.content-textarea {
+  font-size: 16px;
+}
+
+/* 附件图标 */
+.content-attachment {
+  padding: 30rpx;
+  border-top: 2rpx solid #eee;
+  border-bottom: 2rpx solid #eee;
+}
+
+.content-attachment .attachment-icon {
+  width: 42rpx;
+  height: 42rpx;
+  margin-right: 40rpx;
+}
+
+/* 图片 */
+.content-image-files {
+  padding: 30rpx 20rpx;
+  display: flex;
+  position: relative;
+}
+
+.content-image-files .content-image-item {
+  height: 160rpx;
+  width: 160rpx;
+  margin-right: 10rpx;
+}
+
+.content-image-files .loading-wrapper {
+  height: 160rpx;
+  width: 160rpx;
+  position: absolute;
+  z-index: 99;
+  background-color: rgba(0, 0, 0, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.content-image-files .loading {
+  height: 80rpx;
+  width: 80rpx;
+}
+
+.content-image-files .close {
+  position: absolute;
+  height: 40rpx;
+  width: 40rpx;
+  top: 10rpx;
+  left: 160rpx;
+  opacity: 0.7;
+}

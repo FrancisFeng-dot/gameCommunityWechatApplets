@@ -1,0 +1,32 @@
+.form {
+  background-color: #ffffff;
+  padding: 20rpx;
+  font-size: 14px;
+}
+
+.form-item {
+  display: flex;
+  align-items: center;
+  margin-top: 20rpx;
+}
+
+.form-label {
+  width: 120rpx;
+}
+
+.form-item:first-child {
+  margin-top: 0;
+}
+
+.form-placeholder-style {
+  font-size: 14px;
+}
+
+.form-label {
+  margin-right: 20rpx;
+}
+
+.tip {
+  font-size: 14px;
+  padding: 10rpx 20rpx;
+}

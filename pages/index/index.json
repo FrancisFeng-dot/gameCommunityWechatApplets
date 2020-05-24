@@ -1,0 +1,11 @@
+{
+  "enablePullDownRefresh": true,
+  "onReachBottomDistance": 50,
+  "usingComponents": {
+    "home-header": "/components/homeHeader/homeHeader",
+    "home-content": "/components/homeContent/homeContent",
+    "home-essence": "/components/homeEssence/homeEssence",
+    "home-active": "/components/homeActive/homeActive",
+    "copyright": "/components/copyright/copyright"
+  }
+}

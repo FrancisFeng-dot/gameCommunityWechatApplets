@@ -1,0 +1,27 @@
+<view> 
+  <view>
+    <block wx:for="{{postList}}" wx:key="{{item.thread_id}}" >
+      <post-item
+        post="{{item}}"
+        showComment="{{false}}"
+        showBehavior="{{false}}"
+        showOperate="{{false}}"
+      />
+    </block>
+  </view>
+
+  <view>
+    <view wx:if="{{loading}}" class="weui-loadmore">
+      <view class="weui-loading"></view>
+      <view class="weui-loadmore__tips">加载中</view>
+    </view>
+
+    <view wx:elif="{{loaded}}" class="weui-loadmore">
+      <view class="weui-loadmore__tips">已经显示全部</view>
+    </view>
+
+    <view wx:else class="weui-loadmore">
+      <view class="weui-loadmore__tips">加载更多</view>
+    </view>
+  </view>
+</view>

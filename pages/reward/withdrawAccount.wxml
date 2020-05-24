@@ -1,0 +1,36 @@
+<view>
+  <view class="tip">为保障提现安全，请绑定已实名认证的支付宝账号</view>
+  <view class="form">
+    <view class="form-item">
+      <view class="form-label">真实姓名</view>
+      <view>
+        <input
+          placeholder="请输入收款人的真实姓名"
+          placeholder-class="form-placeholder-style"
+          bindinput="changeInput"
+          data-label="real_name"
+          value="{{form.real_name}}"
+        />
+      </view>
+    </view>
+    <view class="form-item">
+      <view class="form-label">绑定账号</view>
+      <view>
+        <input
+          placeholder="绑定账号"
+          placeholder-class="form-placeholder-style"
+          bindinput="changeInput"
+          data-label="account"
+          value="{{form.account}}"
+        />
+      </view>
+    </view>
+  </view>
+  <view class="mt-10 tip grey">零钱将提现至您绑定的支付宝账号</view>
+  <view class="pd-20">
+    <button
+      class="copyright-bg-color copyright-text-color"
+      bindtap="bindWalletAlipayAccount"
+    >确认绑定</button>
+  </view>
+</view>

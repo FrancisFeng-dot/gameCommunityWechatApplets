@@ -1,0 +1,4 @@
+<view style="text-align: center">
+  <image src="/icons/black.png" style="width: 260rpx;height: 260rpx; margin-top: 240rpx;" />
+  <view class="grey font-14 mt-30">您已被圈主禁止访问</view>
+</view>

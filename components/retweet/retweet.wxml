@@ -1,0 +1,32 @@
+<view class="retweet">
+  <view bindtap="goDetail" class="weui-cells" wx:if="{{!isLike}}">
+    <view class="weui-cell">
+      <view class="weui-cell__hd mr-20">
+        <image 
+          class="retweet-avatar" 
+          src="{{!!detail.thread_info.author_base_info ? detail.thread_info.author_base_info.avatar : detail.thread_info.forum_info.logo}}"
+          lazy-load 
+        />
+      </view>
+      <view class="weui-cell__bd oneline">
+        <view class="black font-12 retweet-title">@{{!!detail.thread_info.author_base_info ? detail.thread_info.author_base_info.nickname : detail.thread_info.forum_info.name }}</view>
+        <view class="retweet-detail">{{detail.thread_info.message}}</view>
+      </view>
+    </view>
+  </view>
+  <view bindtap="goDetail" class="weui-cells" wx:else>
+    <view class="weui-cell">
+      <view class="weui-cell__hd mr-20">
+        <image 
+          class="retweet-avatar" 
+          src="{{!!detail.author_base_info ? detail.author_base_info.avatar : detail.forum_info.logo}}"
+          lazy-load 
+        />
+      </view>
+      <view class="weui-cell__bd oneline">
+        <view class="black font-12 retweet-title">@{{!!detail.author_base_info ? detail.author_base_info.nickname : detail.forum_info.name }}</view>
+        <view class="retweet-detail">{{detail.message}}</view>
+      </view>
+    </view>
+  </view>
+</view>

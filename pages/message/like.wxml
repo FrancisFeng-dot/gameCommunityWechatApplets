@@ -1,0 +1,27 @@
+<view class="msg-likes">
+    <view wx:if="{{!!likes.length}}">
+      <view wx:for="{{likes}}" wx:key="{{index}}" wx:if="{{item.thread_info}}" class="bg-white" style="margin-bottom: 10px;">
+        <view class="weui-cells">
+          <view class="weui-cell">
+            <view class="weui-cell__hd mr-20">
+              <image class="msg-likes-avatar" src="{{item.author_info.avatar}}"></image>
+            </view>
+            <view class="weui-cell__bd">
+              <view class="black font-12 msg-likes-title">{{item.author_info.nickname}}</view>
+              <view class="grey font-12 mt-5">{{item.format_time}}</view>
+            </view>
+          </view>
+        </view>
+        <view class="msg-likes-container">
+          <view class="msg-likes-txt">赞了这篇帖子</view>
+          <retweet 
+            detail="{{item}}"
+          />
+        </view>
+      </view>
+    </view>
+    <view class="not-data" wx:if="{{!!loaded && !likes.length}}">
+      <text>一个赞也没有呢</text>
+    </view>
+    <load-more loading="{{loading}}" loaded="{{loaded}}" showtext="{{isShowTxt}}" />
+  </view>

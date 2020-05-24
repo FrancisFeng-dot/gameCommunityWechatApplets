@@ -1,0 +1,37 @@
+<navigator url="/pages/post/post?id={{post.thread_id}}" class="block">
+  <!-- 帖子 -->
+  <view class="oneline">{{message}}</view>
+  <view class="block-item flex">
+    <!-- 圈子发布 -->
+    <block wx:if="{{post.type_id === 10 || post.type_id === 11}}">
+      <view class="block-image">
+        <image
+          class="user-avatar"
+          src="{{post.forum_info.logo}}"
+        />
+      </view>
+      <view  class="block-content">
+        <view class="user-nickname">@{{post.forum_info.name}}</view>
+        <view class="user-time">
+          <rich-text nodes="{{post.message}}" />
+        </view>
+      </view>
+    </block>
+
+    <!-- 用户发布 -->
+    <block wx:else>
+      <view class="block-image">
+        <image
+          class="user-avatar"
+          src="{{post.author_base_info.avatar}}"
+        />
+      </view>
+      <view class="block-content">
+        <view class="user-nickname">@{{post.author_base_info.nickname}}</view>
+        <view class="user-time">
+          <rich-text nodes="{{post.message}}" />
+        </view>
+      </view>
+    </block>
+  </view>
+</navigator>

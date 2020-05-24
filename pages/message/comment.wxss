@@ -1,0 +1,24 @@
+@import '../../app.wxss';
+
+.msg-comment .weui-cells {
+  margin-top: 0;
+}
+.msg-comment-avatar {
+  width: 68rpx;
+  height: 68rpx;
+  border-radius: 50%;
+}
+.msg-comment-title {
+  color: #404040;
+}
+.msg-comment-container {
+  padding-left: 114rpx;
+  padding-right: 28rpx;
+}
+.msg-comment-txt {
+  color: #404040;
+  font-size: 30rpx;
+}
+.weui-cells:after {
+  border: none;
+}

@@ -1,0 +1,65 @@
+<view class="sign">
+  <view class="sign-header copyright-bg-color">
+    <view class="flex mt-40">  
+      <view class="flex flex-auto">
+        <image src="{{avatar}}" class="avatar mr-20" />
+        <text class="font-14 white mr-20">{{nickName}}</text>
+        <text class="header-tag white" style="border-color: white;">{{user.level.curr_level}}</text>
+      </view>
+      <button open-type="share" class="copyright-color sign-btn font-14">点击分享</button>
+    </view>
+    <view style="margin-top: 54rpx;">
+      <view class="font-14 white" style="margin-bottom: 22rpx;">经验值 {{user.points}}/{{user.level.next_point}}</view>
+      <view style="border-radius: 4px; overflow: hidden;">
+        <progress percent="{{(user.points/user.level.next_point) * 100}}" active activeColor="#fff" backgroundColor="rgba(0,0,0,.2)" />        
+      </view>
+    </view>
+  </view>
+  <view class="sign-tab">
+    <view class="border"></view>
+    <view class="flex font-14">
+      <view id="1" class="flex-auto sign-tabber {{!!status ? 'copyright-color' : ''}}" bindtap="changeTab">
+        连续榜
+        <view class="sign-slide copyright-bg-color" wx:if="{{status === 1}}"></view>
+      </view>
+      <view id="0" class="flex-auto sign-tabber {{!status ? 'copyright-color' : ''}}" bindtap="changeTab">
+        坚持榜
+        <view class="sign-slide copyright-bg-color" wx:if="{{status === 0}}"></view>
+      </view>
+    </view>
+  </view>
+  <view class="sign-list">
+    <view wx:if="{{status}}">
+      <view class="weui-cells">
+        <view class="weui-cell" wx:for="{{continuousList}}" wx:key="{{index}}">
+          <view class="weui-cell__hd mr-20 flex">
+            <view class="copyright-color sign-index">{{index + 1}}</view>
+            <image class="avatar mr-20" src="{{item.user_info.avatar}}" lazy-load />
+            <view class="font-14 black">{{item.user_info.nickname}}</view>
+          </view>
+          <view class="weui-cell__bd" />
+          <view class="weui-cell__ft">
+            <view class="black font-14">{{item.sign_contact_date}}次</view>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view wx:else> 
+      <view class="weui-cells">
+        <view class="weui-cell" wx:for="{{insistList}}" wx:key="{{index}}">
+          <view class="weui-cell__hd mr-20 flex">
+            <view class="copyright-color sign-index">{{index + 1}}</view>
+            <image class="avatar mr-20" src="{{item.user_info.avatar}}" lazy-load />
+            <view class="font-14 black">{{item.user_info.nickname}}</view>
+          </view>
+          <view class="weui-cell__bd" />
+          <view class="weui-cell__ft">
+            <view class="black font-14">{{item.sign_total_day}}次</view>
+          </view>
+        </view>
+      </view>
+    </view>
+    <load-more loading="{{continuousLoading}}" loaded="{{continuousLoaded}}" wx:if="{{status}}"/>
+    <load-more loading="{{insistLoading}}" loaded="{{insistLoaded}}" wx:else />
+  </view>
+</view>

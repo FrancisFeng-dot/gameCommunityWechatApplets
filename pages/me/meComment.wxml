@@ -1,0 +1,12 @@
+<view>
+  <block wx:for="{{list}}" wx:key="{{item.comment_id}}">
+    <operate-item
+      wx:if="{{item.thread_info.thread_id}}"
+      mode="post"
+      message="我的评论：{{item.content}}"
+      post="{{item.thread_info}}"
+    />
+  </block>
+
+  <load-more loading="{{loading}}" loaded="{{loaded}}" />
+</view>

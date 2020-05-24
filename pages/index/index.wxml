@@ -1,0 +1,79 @@
+<view class="container">
+  <!-- header -->
+  <home-header bindsearch="handleSearch" />
+
+  <!-- 公告 -->
+  <navigator url="/pages/index/notice" wx:if="{{notice}}" class="notice-container oneline">
+    <i class="iconfont icon-notificationfill copyright-color mr-10"></i>
+    <text class="oneline" >公告：{{notice.title}}</text>
+  </navigator>
+
+  <!-- 内容 -->
+  <view class="content-container">
+    <!-- 标签切换 -->
+    <view class="weui-tab">
+      <view class="weui-navbar">
+        <block wx:for-items="{{tabs}}" wx:key="{{index}}">
+          <view
+            id="{{index}}"
+            class="weui-navbar__item {{activeIndex == index ? 'copyright-color' : ''}}"
+            bindtap="tabClick"
+          >
+            <view class="weui-navbar__title">{{item}}</view>
+          </view>
+        </block>
+      </view>
+
+      <!-- 滑动条 -->
+      <view
+        class="weui-navbar__slider copyright-bg-color" 
+        style="left: {{sliderLeft}}px; transform: translateX({{sliderOffset}}px); -webkit-transform: translateX({{sliderOffset}}px);">
+      </view>
+    </view>
+
+    <!-- 数据 -->
+    <view>
+      <view class="weui-tab__content" hidden="{{activeIndex != 0}}">
+        <home-content
+          postList="{{postIndex}}"
+          loading="{{postIndexLoading}}"
+          loaded="{{postIndexLoaded}}"
+          bannerList="{{bannerList}}"
+          bindtapTag="handleTapTag"
+        />
+      </view>
+      <view class="weui-tab__content" hidden="{{activeIndex != 1}}">
+        <home-essence
+          postList="{{postEssence}}"
+          loading="{{postEssenceLoading}}"
+          loaded="{{postEssenceLoaded}}"
+        />
+      </view>
+      <view class="weui-tab__content" hidden="{{activeIndex != 2}}">
+        <home-active
+          activeUserList="{{activeUserList}}"
+          loading="{{activeUserLoading}}"
+        />
+      </view>
+    </view>
+  </view>
+
+  <!-- 版权信息 -->
+  <copyright />
+
+  <navigator
+    wx:if="{{isRedPacketActivity}}"
+    url="/pages/reward/reward"
+    class="reward-btn"
+  >
+    <image src="/icons/reward_home.png" />
+  </navigator>
+
+  <navigator
+    wx:if="{{isOpenPost}}"
+    url="/pages/post/postCreate"
+    class="post-btn copyright-bg-color copyright-text-color"
+  >
+    发帖
+  </navigator>
+</view>

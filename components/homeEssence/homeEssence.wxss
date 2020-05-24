@@ -1,0 +1,6 @@
+@import '../../app.wxss';
+
+.weui-loadmore__tips {
+  color: #999999;
+  background-color: #f2f2f2;
+}

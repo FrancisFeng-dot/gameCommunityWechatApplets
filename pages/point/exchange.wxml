@@ -1,0 +1,30 @@
+<view class="font-14">
+  <view>
+    <block wx:for="{{dataIndex}}" wx:key="{{item.exchange_id}}" >
+      <view class="pd-20 bg-ehite flex">
+        <view>
+          <view class="grey mr-20">{{item.date}}</view>
+          <view class="grey mr-20">{{item.time}}</view>
+        </view>
+        <view>
+          <image
+            src="{{item.goods_info.goods_img}}"
+            class="goods-image"
+          />
+        </view>
+        <view>
+          <view class="grey">{{item.goods_info.goods_name}}</view>
+          <view class="grey">
+            -{{item.exchange_integrand}}积分
+          </view>
+        </view>
+      </view>
+    </block>
+  </view>
+  <view class="not-data" wx:if="{{!!dataIndexLoaded && !dataIndex.length}}">
+    <text>暂无兑换记录</text>
+  </view>
+  <load-more loading="{{dataIndexLoading}}" loaded="{{dataIndexLoaded}}" showtext="{{isShowTxt}}" />
+
+  <copyright />
+</view>

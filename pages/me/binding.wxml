@@ -1,0 +1,26 @@
+<view class="h-max">
+  <view >
+    <view class="title">同步个人信息</view>
+
+    <view class="form">
+      <view class="label">请输入校验码：</view>
+      <view class="input-wrapper">
+        <input class="input" bindinput="handleInputUserCode" placeholder="校验码" />
+      </view>
+    </view>
+
+    <view class="button-wrapper mb-0">
+      <button
+        class="select-old copyright-color copyright-border-color"
+        bindtap="loginWithOldUser"
+      >确定</button>
+    </view>
+    
+    <view class="attention">
+      <view>注意事项：</view>
+      <view>1. 输入验证码后H5页面数据与小程序互通;</view>
+      <view>2. 验证码获取方式：请前往手机微信社区获取验证码。路径：进入社区>我的页面>设置;</view>
+    </view>
+  </view>
+  <copyright />
+</view>

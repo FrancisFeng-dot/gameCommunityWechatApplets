@@ -1,0 +1,63 @@
+{
+  "pages":[
+       "pages/index/index",
+        "pages/index/mp",
+        "pages/index/notice",
+        "pages/me/me",
+        "pages/me/meFavorite",
+        "pages/me/meLike",
+        "pages/me/meComment",
+        "pages/me/binding",
+        "pages/user/user",
+        "pages/post/post",
+        "pages/post/postCreate",
+        "pages/post/postComment",
+        "pages/post/postRecordVoice",
+        "pages/reward/reward",
+        "pages/reward/withdraw",
+        "pages/reward/withdrawAccount",
+        "pages/point/point",
+        "pages/point/goods",
+        "pages/point/exchange",
+        "pages/point/pay",
+        "pages/point/detail",
+        "pages/auth/login",
+        "pages/black/black",
+        "pages/sign/sign",
+        "pages/message/message",
+        "pages/message/like",
+        "pages/message/comment"
+  ],
+  "window":{
+    "navigationBarBackgroundColor": "#198AF3",
+    "navigationBarTitleText": "全民游游",
+    "navigationBarTextStyle":"white"
+  },
+  "tabBar": {
+    "color": "#333",
+    "selectedColor": "#333",
+    "backgroundColor": "#ffffff",
+    "borderStyle": "black",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "icons/home.png",
+        "selectedIconPath": "icons/home_active.png"
+      },
+      {
+        "pagePath": "pages/message/message",
+        "text": "消息",
+        "iconPath": "icons/message.png",
+        "selectedIconPath": "icons/message_active.png"
+      },
+      {
+        "pagePath": "pages/me/me",
+        "text": "我的",
+        "iconPath": "icons/mine.png",
+        "selectedIconPath": "icons/mine_active.png"
+      }
+    ]
+  }
+}
+

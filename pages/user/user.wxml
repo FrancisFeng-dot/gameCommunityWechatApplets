@@ -1,0 +1,22 @@
+<view>
+  <view class="header">
+    <image class="avatar" src="{{user.avatar}}" />
+    <view class="nickname">{{user.nickname}}</view>
+  </view>
+
+  <view>
+    <view>
+      <block wx:for="{{postIndex}}" wx:key="{{item.thread_id}}" >
+        <post-item
+          post="{{item}}"
+          showBehavior="{{false}}"
+          showOperate="{{false}}"
+          navigatorType="redirect"
+        />
+      </block>
+    </view>
+    <load-more loading="{{postIndexLoading}}" loaded="{{postIndexLoaded}}" />
+  </view>
+
+  <copyright />
+</view>

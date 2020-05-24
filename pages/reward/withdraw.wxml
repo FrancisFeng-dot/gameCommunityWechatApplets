@@ -1,0 +1,35 @@
+<view>
+  <view class="box">
+    <view class="money-box flex">
+      <text class="title">账户余额</text>
+      <text class="money grey">{{haveMoney}}</text>
+      <text class="money-unit grey">元</text>
+    </view>
+    <view class="mt-20">
+      <view class="title">提现金额</view>
+      <view class="money-withdraw flex">
+        <text>￥</text>
+        <input type="digit" bindinput="handleChangeMoney" value="{{money}}" />
+      </view>
+    </view>
+    <view wx:if="{{account}}" class="mt-20">
+      <text class="grey mr-20">将提现到：{{account.account_info.logonid}}</text>
+      <navigator class="inline blue" url="/pages/reward/withdrawAccount">更改</navigator>
+    </view>
+    <view wx:else class="mt-20">
+      <text class="grey">提现到支付宝钱包，</text>
+      <navigator class="inline blue" url="/pages/reward/withdrawAccount">点击设置账号</navigator>
+    </view>
+    <button
+      class="mt-30 copyright-bg-color copyright-text-color"
+      disabled="{{money < 1}}"
+      bindtap="withdraw"
+    >提现</button>
+    <view class="grey mt-30">
+      <view>注意事项：</view>
+      <view>1、1-3个工作日到账，具体视支付宝规则而定。</view>
+      <view>2、金额满1元可提现。</view>
+      <view>3、绑定支付宝账号请检查账号的正确性（请输入真实姓名，因支付宝需要实名验证）。</view>
+    </view>
+  </view>
+</view>

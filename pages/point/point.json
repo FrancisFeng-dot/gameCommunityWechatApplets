@@ -1,0 +1,7 @@
+{
+  "onReachBottomDistance": 50,
+  "usingComponents": {
+    "load-more": "/components/loadMore/loadMore",
+    "copyright": "/components/copyright/copyright"
+  }
+}

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="40px" height="40px" viewBox="0 0 40 40" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 47.1 (45422) - http://www.bohemiancoding.com/sketch -->
+    <title>comment</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="平台-我的-copy" transform="translate(-15.000000, -82.000000)">
+            <g id="comment" transform="translate(15.000000, 82.000000)">
+                <rect id="Rectangle-44" fill="#5E9CE5" x="14.6666667" y="18.6666667" width="2" height="2"></rect>
+                <rect id="Rectangle-44-Copy" fill="#5E9CE5" x="19.3333333" y="18.6666667" width="2" height="2"></rect>
+                <rect id="Rectangle-44-Copy-2" fill="#5E9CE5" x="24" y="18.6666667" width="2" height="2"></rect>
+                <path d="M20,40 C8.954305,40 0,31.045695 0,20 C0,8.954305 8.954305,0 20,0 C31.045695,0 40,8.954305 40,20 C40,31.045695 31.045695,40 20,40 Z M10.6666667,13.9566402 L10.6666667,25.6331034 C10.6666667,25.9864934 10.9494618,26.2564103 11.2983073,26.2564103 L17.5111111,26.2564103 L19.6111111,28.8525641 C19.8210052,29.1120486 20.1741115,29.1180856 20.3888889,28.8525641 L22.4888889,26.2564103 L28.7016927,26.2564103 C29.0565459,26.2564103 29.3333333,25.9773463 29.3333333,25.6331034 L29.3333333,13.9566402 C29.3333333,13.6032502 29.0552693,13.3333333 28.7122599,13.3333333 L11.2877401,13.3333333 C10.9450272,13.3333333 10.6666667,13.6123973 10.6666667,13.9566402 Z" id="Oval-19" fill="#40A3FF"></path>
+            </g>
+        </g>
+    </g>
+</svg>

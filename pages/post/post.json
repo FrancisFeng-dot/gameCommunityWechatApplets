@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "comment-item": "/components/commentItem/commentItem",
+    "load-more": "/components/loadMore/loadMore"
+  }
+}

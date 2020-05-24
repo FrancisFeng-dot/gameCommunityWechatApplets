@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="16px" height="15px" viewBox="0 0 16 15" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 47.1 (45422) - http://www.bohemiancoding.com/sketch -->
+    <title>icon</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="积分" transform="translate(-221.000000, -176.000000)">
+            <g id="icon" transform="translate(221.000000, 176.000000)">
+                <path d="M5.24604844,3.62400804 C3.09860606,4.61343703 1.39289823,6.6704784 1,9 C-0.0119628906,15 4.6862915,15 8,15 C11.3137085,15 16.022583,15 15,9 C14.6044823,6.67930197 12.9122361,4.62930427 10.7779401,3.63554083 C10.8595913,3.47476885 10.9285848,3.30938221 10.9832349,3.14057922 L11.0742602,2.85942078 C11.5880447,1.27244568 10.6561086,0 8.99833453,0 L7.00166547,0 C5.33902013,0 4.42341607,1.27234498 4.94572627,2.84186205 L5.05097783,3.15813795 C5.10377772,3.31679908 5.16926688,3.47242507 5.24604844,3.62400804 Z" id="Oval-9" fill="#FBAF55"></path>
+                <g id="Group-8" transform="translate(5.600000, 6.000000)" stroke="#FFFFFF" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M-8.8817842e-16,2.42424242 L4.76190476,2.42424242" id="Line"></path>
+                    <path d="M-8.8817842e-16,4.24242424 L4.76190476,4.24242424" id="Line"></path>
+                    <path d="M2.38095238,2.72727273 L2.38095238,6.36363636" id="Line"></path>
+                    <path d="M2.38095238,2.12121212 L4.42176871,0.303030303" id="Line"></path>
+                    <path d="M0.340136054,2.12121212 L2.38095238,0.303030303" id="Line" transform="translate(1.360544, 1.212121) scale(-1, 1) translate(-1.360544, -1.212121) "></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

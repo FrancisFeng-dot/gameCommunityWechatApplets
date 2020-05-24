@@ -1,0 +1,72 @@
+<view>
+  <!-- tags -->
+  <view wx:if="{{topicList}}" class="tag-wrapper">
+    <view class="tag {{tagActive === 0 && 'copyright-color copyright-border-color'}}" data-id="{{0}}" bindtap="tapTag">全部内容</view>
+    <block wx:for="{{topicList}}" wx:key="{{item.topic_cate_id}}">
+      <view
+        wx:if="{{item.is_pay === 0}}"
+        class="tag {{item.topic_cate_id === tagActive && 'copyright-color copyright-border-color'}}"
+        data-id="{{item.topic_cate_id}}"
+        bindtap="tapTag"
+      >
+        {{item.topic_name}} 
+        <image wx:if="{{item.is_pay}}" class="tag-icon" src="/icons/rmb_s.svg" />
+      </view>
+    </block>
+  </view>
+
+  <!-- 置顶帖 -->
+  <view wx:if="{{topPostList && topPostList.length > 0}}" class="notice">
+    <block
+      wx:for="{{topPostList}}"
+		  wx:key="{{item.thread_id}}"
+    >
+      <navigator
+        wx:if="{{topPostShowAll || index < 3}}"
+        url="/pages/post/post?id={{item.thread_id}}"
+        class="notice-item"
+      >
+        <text class="notice-icon">顶</text>
+        <text>{{item.message}}</text>
+      </navigator>
+    </block>
+    <view wx:if="{{topPostList.length > 3}}" class="notice-item notice-more" bindtap="handleTopPostShowAll">
+      <image wx:if="{{topPostShowAll}}" class="notice-more-icon" src="/icons/fold.svg" />
+      <image wx:else="{{topPostShowAll}}" class="notice-more-icon" src="/icons/unfold.svg" />
+    </view>
+  </view>
+
+  <!-- slide -->
+  <view wx:if="{{isOpenAd && (bannerList && bannerList.length > 0)}}" class="slide-wrapper">
+    <swiper
+      class="slide-swiper"
+      indicator-dots
+      autoplay
+      interval="6000"
+    >
+      <block wx:for="{{bannerList}}" wx:key="{{item}}">
+        <swiper-item>
+          <image
+            mode="aspectFill"
+            src="https://ocrjl5j3c.qnssl.com/{{item.image}}?imageView2/1/w/800/h/400"
+            class="slide-image"
+            bindtap="adView"
+            data-appid="{{item.weapp_id}}"
+            data-link="{{item.link}}"
+          />
+        </swiper-item>
+      </block>
+    </swiper>
+  </view>
+
+  <!-- 帖子列表 -->
+  <view class="mt-20"> 
+    <view>
+      <block wx:for="{{postList}}" wx:key="{{item.thread_id}}" >
+        <post-item post="{{item}}" index="{{index}}" bindtop="getTopPost" bindselectvideo="selectVideo" bindpostTapTag="postTapTag" playVideoId="{{playVideoId}}"/>
+      </block>
+    </view>
+
+    <load-more loading="{{loading}}" loaded="{{loaded}}" />
+  </view>
+</view>

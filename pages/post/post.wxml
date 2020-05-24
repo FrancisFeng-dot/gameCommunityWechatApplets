@@ -1,0 +1,206 @@
+<import src="/utils/wxParse/wxParse.wxml"/>
+
+<view class="post-container">
+  <view class="pd-0-30 bg-white">
+    <!-- 用户信息 -->
+    <view class="user-info flex">
+      <!-- 圈子发布 -->
+      <block wx:if="{{post.type_id === 10 || post.type_id === 11}}">
+        <image
+          class="user-avatar"
+          src="{{post.forum_info.logo}}"
+        />
+        <view>
+          <view class="user-nickname">{{post.forum_info.name}}</view>
+          <view class="user-time">{{post.dateline}}</view>
+        </view>
+      </block>
+
+      <!-- 用户发布 -->
+      <block wx:else>
+        <image
+          class="user-avatar"
+          src="{{post.author_base_info.avatar}}"
+        />
+        <view>
+          <view class="user-nickname flex">
+            <text class="mr-20">{{post.author_base_info.nickname}}</text>
+            <text
+              wx:if="{{post.author_advanced_info.is_admin === 1}}"
+              class="header-tag mr-20 copyright-color copyright-border-color"
+            >圈主</text>
+            <text
+              class="header-tag header-level mr-20"
+            >{{post.author_advanced_info.level.curr_level}}</text>
+          </view>
+          <view class="user-time">{{post.dateline}}</view>
+        </view>
+      </block>
+    </view>
+
+    <!-- 统计数据 -->
+    <view class="post-behavior flex">
+      <view>
+        <view class="flex">
+          <i class="iconfont icon-attention_light font-22 mr-10"></i>
+          <text>{{post.behavior_total.views}}</text>
+        </view>
+      </view>
+      <view class="flex">
+        <button class="operate-botton flex" bindtap="doFavorite">
+          <i wx:if="{{post.user_is_list.favorite}}" class="iconfont icon-favor_fill_light copyright-color font-22 mr-10"></i>
+          <i wx:else class="iconfont icon-favor_light font-22 mr-10"></i>
+          <text class="mr-20">收藏</text>
+        </button>
+        <button class="operate-botton flex" open-type="share">
+          <i class="iconfont icon-share_light font-22 mr-10"></i>
+          <text>分享</text>
+        </button>
+      </view>
+    </view>
+
+    <!-- 内容 -->
+    <view class="post-content">
+      <rich-text nodes="{{post.message}}" />
+
+      <!-- 富文本 -->
+      <view
+        wx:if="{{post.subject}}"
+        class="content-rich"
+      >
+        <template is="wxParse" data="{{wxParseData:richContent.nodes}}"/>
+      </view>
+
+      <!-- 语音 -->
+      <view wx:if="{{post.type_id === 3}}" class="content-media">
+        <audio
+          id="myAudio"
+          poster="{{post.author_base_info.avatar}}"
+          name="语音"
+          author="{{post.author_base_info.nickname}}"
+          src="{{post.attachment_list.filename}}"
+          controls
+        />
+      </view>
+
+      <!-- 视频 -->
+      <view wx:if="{{post.type_id === 7}}" class="content-media">
+        <video
+          class="content-video"
+          controls
+          src="{{post.attachment_list.filename}}"
+          poster="{{post.attachment_list.filename}}?vframe/jpg/offset/0/rotate/auto"
+        ></video>
+      </view>
+
+       <!-- 图片列表 -->
+      <view class="mt-20" wx:if="{{(post.type_id === 1 || post.type_id === 2) && post.attachment_list}}">
+        <image
+          class="content-image"
+          wx:for="{{post.attachment_list}}"
+          wx:key="{{item.url}}"
+          mode="widthFix"
+          src="{{item.url}}?imageView2/0/w/600/format/jpg"
+          bindtap="previewImage"
+          data-url="{{item.url}}"
+        />
+      </view>
+    </view>
+  </view>
+
+  <!-- 评论 -->
+  <view>
+    <view class="comment-header flex">
+      <view class="comment-behavior-stats flex">
+        <view class="mr-60 {{activeIndex ? '' : 'copyright-text-color'}}" id="0" bindtap="tabClick" style="margin-right: 40rpx; position: relative;">
+          评论 {{post.behavior_total.comments}}
+          <view class="tab-slider copyright-bg-color" wx:if="{{!activeIndex}}"></view>
+        </view>
+        <view id="1" bindtap="tabClick" class="{{activeIndex ? 'copyright-text-color' : ''}}" style="position: relative;">
+          赞 {{post.behavior_total.likes}}
+          <view class="tab-slider copyright-bg-color" wx:if="{{!!activeIndex}}"></view>
+        </view>
+      </view>
+    </view>
+    <view wx:if="{{activeIndex === 0}}">
+      <view
+        class="comment-wrapper"
+      >
+        <!-- 没有评论 -->
+        <view
+          wx:if="{{commentList.length === 0}}"
+          class="comment-no"
+        >
+          <image class="comment-no-icon" src="/icons/sofa.svg" />
+          <view>暂无评论，赶快去抢沙发！</view>
+        </view>
+
+        <!-- 评论列表 -->
+        <view wx:else>
+          <block wx:for="{{commentList}}" wx:key="{{item.comment_id}}">
+            <comment-item comment="{{item}}" post="{{post}}" isOpenPost="{{isOpenPost}}" />
+          </block>
+        </view>
+      </view>
+
+      <block wx:if="{{commentList.length > 0}}">
+        <load-more loading="{{commentLoading}}" loaded="{{commentLoaded}}" />
+      </block>
+    </view>
+    <view wx:else>
+      <view
+        class="comment-wrapper"
+      >
+        <!-- 没有评论 -->
+        <view
+          wx:if="{{likeList.length === 0}}"
+          class="comment-no"
+          style="padding: 60rpx 0;"
+        >
+          <view>暂无点赞，赶紧点个赞吧～</view>
+        </view>
+
+        <!-- 评论列表 -->
+        <view wx:else>
+          <view class="flex like-user" wx:for="{{likeList}}" wx:key="{{index}}">
+            <navigator
+              class="flex"
+              open-type="navigate"
+              url="/pages/user/user?id={{item.user_id}}"
+              hover-class="none"
+            >
+              <image
+                class="header-avatar mr-20"
+                src="{{item.avatar}}"
+                lazy-load
+              />
+              <text class="mr-20 post-nickname">{{item.nickname}}</text>
+            </navigator>
+          </view>
+        </view>
+      </view>
+
+      <block wx:if="{{likeList.length > 0}}">
+        <load-more loading="{{likeLoading}}" loaded="{{likeLoaded}}" />
+      </block>
+    </view>
+  </view>
+
+  <view wx:if="{{isOpenPost}}" class="post-operate flex">
+    <view
+      class="post-operate-comment"
+      bindtap="goCommentView"
+      data-parentid="0"
+    >评论</view>
+    <navigator url="/pages/index/index" hover-class="none" open-type="switchTab" class="post-operate-like-wrapper flex">
+      <image src="/icons/post-home.svg" style="width: 38rpx;height: 38rpx;"></image>
+    </navigator>
+    <view class="post-operate-like-wrapper" bindtap="doLike">
+      <i wx:if="{{post.user_is_list.likes}}" class="post-operate-like iconfont icon-appreciate_fill_light font-22 copyright-color"></i>
+      <i wx:else class="post-operate-like iconfont icon-appreciate_light font-22"></i>
+      <view wx:if="{{post.user_is_list.likes > 0}}" class="post-behavior-like copyright-color">
+        {{post.user_is_list.likes}}
+      </view>
+    </view>
+  </view>
+</view>

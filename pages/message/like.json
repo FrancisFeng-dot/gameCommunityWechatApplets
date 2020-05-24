@@ -1,0 +1,10 @@
+{
+  "navigationBarTitleText": "收到的赞",
+  "enablePullDownRefresh": true,
+  "backgroundTextStyle": "dark",
+  "onReachBottomDistance": 50,
+  "usingComponents": {
+    "load-more": "/components/loadMore/loadMore",
+    "retweet": "/components/retweet/retweet"
+  } 
+}

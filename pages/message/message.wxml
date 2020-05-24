@@ -1,0 +1,23 @@
+<view class="message">
+  <view class="weui-cells">
+    <navigator url="/pages/message/comment" class="weui-cell weui-cell_access" hover-class="none">
+      <view class="weui-cell__hd message-icon mr-20">
+        <image class="iconfont" src="/icons/msg_comment.svg"></image>
+      </view>
+      <view class="weui-cell__bd des">评论</view>
+      <view class="weui-cell__ft_in-access">
+        <view class="weui-badge" wx:if="{{!!count.comment}}">{{ count.comment }}</view>
+      </view>
+    </navigator>
+    <navigator url="/pages/message/like" class="weui-cell weui-cell_access" hover-class="none">
+      <view class="weui-cell__hd message-icon mr-20">
+        <image class="iconfont" src="/icons/msg_like.svg"></image>
+      </view>
+      <view class="weui-cell__bd des">点赞</view>
+      <view class="weui-cell__ft_in-access">
+        <view class="weui-badge" wx:if="{{!!count.like}}">{{ count.like }}</view>
+      </view>
+    </navigator>
+  </view>
+  <copyright />
+</view>

@@ -1,0 +1,56 @@
+page {
+  background: white;
+}
+.sign-header {
+  height: 228rpx;
+  padding: 44rpx 24rpx;
+}
+.avatar {
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 50%;
+}
+.sign-btn {
+  width: 304rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  border-radius: 40px;
+  background: rgba(255, 255, 255, .8);
+  text-align: center;
+}
+.weui-cells {
+  margin-top: 0;
+}
+.sign-index {
+  font-size: 17px;
+  width: 42rpx;
+  margin-right: 28rpx;
+  text-align: center;
+}
+.sign-tab {
+  height: 80rpx;
+  line-height: 80rpx;
+  text-align: center;
+  color: #717171;
+  position: relative;
+  background: white;
+}
+.border {
+  position: absolute;
+  height: 26rpx;
+  width: 2rpx;
+  background: #f1f1f1;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+.sign-tabber {
+  position: relative;
+}
+.sign-slide {
+  position: absolute;
+  width: 100%;
+  height: 4rpx;
+  bottom: 0;
+  left: 0;
+}

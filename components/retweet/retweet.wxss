@@ -1,0 +1,38 @@
+@import '../../app.wxss';
+
+.retweet {
+  padding-bottom: 28rpx;
+}
+.retweet-avatar {
+  width: 142rpx;
+  height: 142rpx;
+}
+.retweet .weui-cell {
+  padding: 0;
+  padding-right: 20rpx;
+  align-items: flex-start;
+  background-color: #F9F9F9; 
+  max-height: 142rpx;
+}
+.retweet .weui-cells:before  {
+  border: none;
+}
+.retweet .weui-cells:after  {
+  border: none;
+}
+.retweet .weui-cells {
+  margin-top: 20rpx;
+}
+.retweet .weui-cell__bd {
+  padding: 24rpx 0;
+}
+.retweet-title {
+  color: #444444;
+  font-size: 28rpx;
+  display: block;
+  margin-bottom: 10rpx;
+}
+.retweet-detail {
+  color: #A4A4A4;
+  font-size: 24rpx;
+}

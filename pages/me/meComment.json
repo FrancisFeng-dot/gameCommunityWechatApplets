@@ -1,0 +1,8 @@
+{
+  "onReachBottomDistance": 50,
+  "navigationBarTitleText": "我的评论",
+  "usingComponents": {
+    "operate-item": "/components/operateItem/operateItem",
+    "load-more": "/components/loadMore/loadMore"
+  }
+}

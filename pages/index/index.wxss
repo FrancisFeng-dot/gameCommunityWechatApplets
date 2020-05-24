@@ -1,0 +1,71 @@
+.notice-container {
+  padding: 20rpx 30rpx;
+  background-color: #fff;
+  font-size: 14px;
+}
+
+.content-container {
+  margin-top: 20rpx;
+}
+
+.post-btn {
+  position: fixed;
+  font-size: 14px;
+  width: 112rpx;
+  height: 112rpx;
+  line-height: 112rpx;
+  text-align: center;
+  border-radius: 50%;
+  z-index: 9999;
+  right: 26rpx;
+  bottom: 28rpx;
+  box-shadow: 0 1px 2px 0 rgba(0,0,0,.3);
+}
+
+.reward-btn {
+  position: fixed;
+  font-size: 14px;
+  width: 112rpx;
+  height: 112rpx;
+  line-height: 112rpx;
+  text-align: center;
+  border-radius: 50%;
+  z-index: 9999;
+  right: 26rpx;
+  bottom: 168rpx;
+}
+
+.reward-btn image {
+  width: 112rpx;
+  height: 112rpx;
+  display: block;
+  margin: 0;
+  border: 50%;
+}
+
+/* 标签切换 */
+.weui-navbar__slider {
+  width: 1em;
+  bottom: 0;
+  z-index: 999;
+}
+
+.weui-navbar {
+  position: relative;
+  background-color: #fff;
+  color: #717171;
+}
+
+.weui-navbar__item {
+  height: 80rpx;
+  padding: 0;
+  line-height: 80rpx;
+}
+
+.weui-navbar {
+  border-bottom:1px solid #e5e5e5;
+}
+
+.weui-tab__panel {
+  padding-top: 100rpx;
+}

@@ -1,0 +1,297 @@
+<import src="/utils/wxParse/wxParse.wxml"/>
+<view
+  wx:if="{{isExist}}"
+  class="post-container {{threadStatusList.essence === 1 ? 'post-essence' : ''}}"
+>
+  <!-- 头像 -->
+  <view class="post-header flex">
+    <!-- 圈子发布 -->
+    <view class="flex" wx:if="{{post.type_id === 10 || post.type_id === 11}}">
+      <image
+        class="header-avatar mr-20"
+        src="{{post.forum_info.logo}}"
+      />
+      <text class="mr-20">{{post.forum_info.name}}</text>
+    </view>
+    <!-- 用户发布 -->
+    <navigator
+      wx:else
+      class="flex"
+      open-type="{{navigatorType}}"
+      url="/pages/user/user?id={{post.author_base_info.user_id}}"
+    >
+      <image
+        class="header-avatar mr-20"
+        src="{{post.author_base_info.avatar}}"
+      />
+      <text class="mr-20">{{post.author_base_info.nickname}}</text>
+      <text
+        wx:if="{{showOperate && post.author_advanced_info.is_admin === 1}}"
+        class="header-tag mr-20 copyright-color copyright-border-color"
+      >圈主</text>
+      <text
+        wx:if="{{showOperate && isShowUserLevel}}"
+        class="header-tag header-level mr-20"
+      >{{post.author_advanced_info.level.curr_level}}</text>
+    </navigator>
+    <view wx:if="{{showOperate}}" class="post-operate-wrapper flex">
+      <image class="post-operate" src="/icons/more.svg" bindtap="postOperate" />
+    </view>
+  </view>
+
+  <!-- 内容 -->
+  <view class="post-content">
+    <!-- 文字 -->
+    <view class="content-text" bindtap="goDetail">
+      <view>
+        <template wx:if="{{isShrink}}" is="wxParse" data="{{wxParseData:richContent.nodes}}" />
+        <template wx:else is="wxParse" data="{{wxParseData:richContent.nodes}}" />
+      </view>
+    </view>
+
+    <view wx:if="{{canShrink}}">
+      <view wx:if="{{isShrink}}" class="shrink" bindtap="changeShrink" data-value="{{false}}">全文</view>
+      <view wx:else class="shrink" bindtap="changeShrink" data-value="{{true}}">收起</view>
+    </view>
+
+    <!-- B端发帖图片 -->
+    <navigator
+      wx:if="{{post.type_id === 11 && post.attachment_list}}"
+      class="content-image-cover-wrapper"
+      url="/pages/post/post?id={{post.thread_id}}"
+    >
+      <image
+        class="content-image-cover"
+        mode="aspectFill"
+        src="{{post.attachment_list.filename}}?imageView2/1/w/600/h/450/format/jpg"
+      />
+      <view class="content-image-cover-icon-wrapper">
+        <image class="content-image-cover-icon" src="/icons/fire.svg" />
+      </view>
+      <view class="content-image-title-wrapper">
+        <view class="font-18">@{{post.forum_info.name}}</view>
+        <view class="font-14">{{post.message}}</view>
+      </view>
+    </navigator>
+
+    <!-- 语音 -->
+    <view wx:if="{{post.type_id === 3}}" class="content-media">
+      <audio
+        id="myAudio"
+        poster="{{post.author_base_info.avatar}}"
+        name="语音"
+        author="{{post.author_base_info.nickname}}"
+        src="{{post.attachment_list.filename}}"
+        controls
+      />
+    </view>
+
+    <!-- 视频 -->
+    <view wx:if="{{post.type_id === 7}}" class="content-media">
+      <video
+        wx:if="{{showVideo && (index === playVideoId)}}"
+        class="content-video"
+        src="{{post.attachment_list.filename}}"
+        poster="{{post.attachment_list.filename}}?vframe/jpg/offset/0/rotate/auto"
+        id="postVideo{{index}}"
+        autoplay
+        controls
+      ></video>
+      <view wx:else bindtap="playVideo" class="content-video-image-wrapper">
+        <image
+          class="content-video"
+          mode="aspectFit"
+          src="{{post.attachment_list.filename}}?vframe/jpg/offset/0/rotate/auto"
+        />
+        <view class="content-video-mask">
+          <image
+            class="content-video-play"
+            src="/icons/play.svg"
+          />
+        </view>
+      </view>
+    </view>
+
+    <!-- 图片列表 -->
+    <block wx:if="{{(post.type_id === 1 || post.type_id === 2) && post.attachment_list}}">
+      <!-- 图片1 -->
+      <view wx:if="{{imageCount === 1}}" class="content-image">
+        <image bindtap="previewImage" data-url="{{post.attachment_list[0].url}}" class="image-m1" lazy-load mode="aspectFill" src="{{post.attachment_list[0].url}}?imageView2/1/w/400/h/400/format/jpg" />
+      </view>
+
+      <!-- 图片2 -->
+      <view wx:elif="{{imageCount === 2}}" class="content-image">
+        <image bindtap="previewImage" data-url="{{post.attachment_list[0].url}}" class="image-m2" lazy-load mode="aspectFill" src="{{post.attachment_list[0].url}}?imageView2/1/w/400/h/400/format/jpg" />
+        <image bindtap="previewImage" data-url="{{post.attachment_list[1].url}}" class="image-m2" lazy-load mode="aspectFill" src="{{post.attachment_list[1].url}}?imageView2/1/w/400/h/400/format/jpg" />
+      </view>
+
+      <!-- 图片3 -->
+      <view wx:elif="{{imageCount === 3}}" class="content-image">
+        <image bindtap="previewImage" data-url="{{post.attachment_list[0].url}}" class="image-m3" lazy-load mode="aspectFill" src="{{post.attachment_list[0].url}}?imageView2/1/w/400/h/400/format/jpg" />
+        <image bindtap="previewImage" data-url="{{post.attachment_list[1].url}}" class="image-m3" lazy-load mode="aspectFill" src="{{post.attachment_list[1].url}}?imageView2/1/w/400/h/400/format/jpg" />
+        <image bindtap="previewImage" data-url="{{post.attachment_list[2].url}}" class="image-m3" lazy-load mode="aspectFill" src="{{post.attachment_list[2].url}}?imageView2/1/w/400/h/400/format/jpg" />
+      </view>
+
+      <!-- 图片4 -->
+      <view wx:elif="{{imageCount === 4}}" class="content-image">
+        <image bindtap="previewImage" data-url="{{post.attachment_list[0].url}}" class="image-m4-1" lazy-load mode="aspectFill" src="{{post.attachment_list[0].url}}?imageView2/1/w/400/h/400/format/jpg" />
+        <view class="content-image-right">
+          <image bindtap="previewImage" data-url="{{post.attachment_list[1].url}}" class="image-m4-2" lazy-load mode="aspectFill" src="{{post.attachment_list[1].url}}?imageView2/1/w/400/h/400/format/jpg" />
+          <image bindtap="previewImage" data-url="{{post.attachment_list[2].url}}" class="image-m4-2" lazy-load mode="aspectFill" src="{{post.attachment_list[2].url}}?imageView2/1/w/400/h/400/format/jpg" />
+          <image bindtap="previewImage" data-url="{{post.attachment_list[3].url}}" class="image-m4-2" lazy-load mode="aspectFill" src="{{post.attachment_list[3].url}}?imageView2/1/w/400/h/400/format/jpg" />
+        </view>
+      </view>
+
+      <!-- 图片5 -->
+      <view wx:elif="{{imageCount === 5}}">
+        <view class="content-image mt-0">
+          <image bindtap="previewImage" data-url="{{post.attachment_list[0].url}}" class="image-m2" lazy-load mode="aspectFill" src="{{post.attachment_list[0].url}}?imageView2/1/w/400/h/400/format/jpg" />
+          <image bindtap="previewImage" data-url="{{post.attachment_list[1].url}}" class="image-m2" lazy-load mode="aspectFill" src="{{post.attachment_list[1].url}}?imageView2/1/w/400/h/400/format/jpg" />
+        </view>
+        <view class="content-image mt-8">
+          <image bindtap="previewImage" data-url="{{post.attachment_list[2].url}}" class="image-m3" lazy-load mode="aspectFill" src="{{post.attachment_list[2].url}}?imageView2/1/w/400/h/400/format/jpg" />
+          <image bindtap="previewImage" data-url="{{post.attachment_list[3].url}}" class="image-m3" lazy-load mode="aspectFill" src="{{post.attachment_list[3].url}}?imageView2/1/w/400/h/400/format/jpg" />
+          <image bindtap="previewImage" data-url="{{post.attachment_list[4].url}}" class="image-m3" lazy-load mode="aspectFill" src="{{post.attachment_list[4].url}}?imageView2/1/w/400/h/400/format/jpg" />
+        </view>
+      </view>
+
+      <!-- 图片6 -->
+      <view wx:elif="{{imageCount === 6}}">
+        <view class="content-image">
+          <image bindtap="previewImage" data-url="{{post.attachment_list[0].url}}" class="image-m6-1" lazy-load mode="aspectFill" src="{{post.attachment_list[0].url}}?imageView2/1/w/400/h/400/format/jpg" />
+          <view class="content-image-right">
+            <image bindtap="previewImage" data-url="{{post.attachment_list[1].url}}" class="image-m6-2" lazy-load mode="aspectFill" src="{{post.attachment_list[1].url}}?imageView2/1/w/400/h/400/format/jpg" />
+            <image bindtap="previewImage" data-url="{{post.attachment_list[2].url}}" class="image-m6-2" lazy-load mode="aspectFill" src="{{post.attachment_list[2].url}}?imageView2/1/w/400/h/400/format/jpg" />
+          </view>
+        </view>
+        <view class="content-image mt-8">
+          <image bindtap="previewImage" data-url="{{post.attachment_list[3].url}}" class="image-m3" lazy-load mode="aspectFill" src="{{post.attachment_list[3].url}}?imageView2/1/w/400/h/400/format/jpg" />
+          <image bindtap="previewImage" data-url="{{post.attachment_list[4].url}}" class="image-m3" lazy-load mode="aspectFill" src="{{post.attachment_list[4].url}}?imageView2/1/w/400/h/400/format/jpg" />
+          <image bindtap="previewImage" data-url="{{post.attachment_list[5].url}}" class="image-m3" lazy-load mode="aspectFill" src="{{post.attachment_list[5].url}}?imageView2/1/w/400/h/400/format/jpg" />
+        </view>
+      </view>
+
+      <!-- 图片7 -->
+      <view wx:elif="{{imageCount === 7}}">
+        <view class="content-image">
+          <image bindtap="previewImage" data-url="{{post.attachment_list[0].url}}" class="image-m6-1" lazy-load mode="aspectFill" src="{{post.attachment_list[0].url}}?imageView2/1/w/400/h/400/format/jpg" />
+          <view class="content-image-right">
+            <image bindtap="previewImage" data-url="{{post.attachment_list[1].url}}" class="image-m6-2" lazy-load mode="aspectFill" src="{{post.attachment_list[1].url}}?imageView2/1/w/400/h/400/format/jpg" />
+            <image bindtap="previewImage" data-url="{{post.attachment_list[2].url}}" class="image-m6-2" lazy-load mode="aspectFill" src="{{post.attachment_list[2].url}}?imageView2/1/w/400/h/400/format/jpg" />
+          </view>
+        </view>
+        <view class="content-image mt-8">
+          <image bindtap="previewImage" data-url="{{post.attachment_list[3].url}}" class="image-m7" lazy-load mode="aspectFill" src="{{post.attachment_list[3].url}}?imageView2/1/w/400/h/400/format/jpg" />
+          <image bindtap="previewImage" data-url="{{post.attachment_list[4].url}}" class="image-m7" lazy-load mode="aspectFill" src="{{post.attachment_list[4].url}}?imageView2/1/w/400/h/400/format/jpg" />
+          <image bindtap="previewImage" data-url="{{post.attachment_list[5].url}}" class="image-m7" lazy-load mode="aspectFill" src="{{post.attachment_list[5].url}}?imageView2/1/w/400/h/400/format/jpg" />
+          <image bindtap="previewImage" data-url="{{post.attachment_list[6].url}}" class="image-m7" lazy-load mode="aspectFill" src="{{post.attachment_list[6].url}}?imageView2/1/w/400/h/400/format/jpg" />
+        </view>
+      </view>
+
+      <!-- 图片8 -->
+      <view wx:elif="{{imageCount === 8}}">
+        <view class="content-image">
+          <image bindtap="previewImage" data-url="{{post.attachment_list[0].url}}" class="image-m4-1" lazy-load mode="aspectFill" src="{{post.attachment_list[0].url}}?imageView2/1/w/400/h/400/format/jpg" />
+          <view class="content-image-right">
+            <image bindtap="previewImage" data-url="{{post.attachment_list[1].url}}" class="image-m4-2" lazy-load mode="aspectFill" src="{{post.attachment_list[1].url}}?imageView2/1/w/400/h/400/format/jpg" />
+            <image bindtap="previewImage" data-url="{{post.attachment_list[2].url}}" class="image-m4-2" lazy-load mode="aspectFill" src="{{post.attachment_list[2].url}}?imageView2/1/w/400/h/400/format/jpg" />
+            <image bindtap="previewImage" data-url="{{post.attachment_list[3].url}}" class="image-m4-2" lazy-load mode="aspectFill" src="{{post.attachment_list[3].url}}?imageView2/1/w/400/h/400/format/jpg" />
+          </view>
+        </view>
+        <view class="content-image mt-8">
+          <image bindtap="previewImage" data-url="{{post.attachment_list[4].url}}" class="image-m7" lazy-load mode="aspectFill" src="{{post.attachment_list[4].url}}?imageView2/1/w/400/h/400/format/jpg" />
+          <image bindtap="previewImage" data-url="{{post.attachment_list[5].url}}" class="image-m7" lazy-load mode="aspectFill" src="{{post.attachment_list[5].url}}?imageView2/1/w/400/h/400/format/jpg" />
+          <image bindtap="previewImage" data-url="{{post.attachment_list[6].url}}" class="image-m7" lazy-load mode="aspectFill" src="{{post.attachment_list[6].url}}?imageView2/1/w/400/h/400/format/jpg" />
+          <image bindtap="previewImage" data-url="{{post.attachment_list[7].url}}" class="image-m7" lazy-load mode="aspectFill" src="{{post.attachment_list[7].url}}?imageView2/1/w/400/h/400/format/jpg" />
+        </view>
+      </view>
+
+      <!-- 图片9 -->
+      <view wx:elif="{{imageCount === 9}}">
+        <view class="content-image">
+          <image bindtap="previewImage" data-url="{{post.attachment_list[0].url}}" class="image-m3" lazy-load mode="aspectFill" src="{{post.attachment_list[0].url}}?imageView2/1/w/400/h/400/format/jpg" />
+          <image bindtap="previewImage" data-url="{{post.attachment_list[1].url}}" class="image-m3" lazy-load mode="aspectFill" src="{{post.attachment_list[1].url}}?imageView2/1/w/400/h/400/format/jpg" />
+          <image bindtap="previewImage" data-url="{{post.attachment_list[2].url}}" class="image-m3" lazy-load mode="aspectFill" src="{{post.attachment_list[2].url}}?imageView2/1/w/400/h/400/format/jpg" />
+        </view>
+        <view class="content-image mt-8">
+          <image bindtap="previewImage" data-url="{{post.attachment_list[3].url}}" class="image-m3" lazy-load mode="aspectFill" src="{{post.attachment_list[3].url}}?imageView2/1/w/400/h/400/format/jpg" />
+          <image bindtap="previewImage" data-url="{{post.attachment_list[4].url}}" class="image-m3" lazy-load mode="aspectFill" src="{{post.attachment_list[4].url}}?imageView2/1/w/400/h/400/format/jpg" />
+          <image bindtap="previewImage" data-url="{{post.attachment_list[5].url}}" class="image-m3" lazy-load mode="aspectFill" src="{{post.attachment_list[5].url}}?imageView2/1/w/400/h/400/format/jpg" />
+        </view>
+        <view class="content-image mt-8">
+          <image bindtap="previewImage" data-url="{{post.attachment_list[6].url}}" class="image-m3" lazy-load mode="aspectFill" src="{{post.attachment_list[6].url}}?imageView2/1/w/400/h/400/format/jpg" />
+          <image bindtap="previewImage" data-url="{{post.attachment_list[7].url}}" class="image-m3" lazy-load mode="aspectFill" src="{{post.attachment_list[7].url}}?imageView2/1/w/400/h/400/format/jpg" />
+          <image bindtap="previewImage" data-url="{{post.attachment_list[8].url}}" class="image-m3" lazy-load mode="aspectFill" src="{{post.attachment_list[8].url}}?imageView2/1/w/400/h/400/format/jpg" />
+        </view>
+      </view>
+    </block>
+  </view>
+
+  <!-- 行为 -->
+  <view class="post-behavior flex">
+    <view class="post-operate-item">{{dateline}}</view>
+    <view class="post-operate-item flex" wx:if="{{showBehavior}}">
+      <!-- 评论 -->
+      <i
+        wx:if="{{isOpenPost}}"
+        class="mr-60 iconfont icon-comment_light font-22"
+        bindtap="goCommentView" 
+        data-parentid="0"
+      ></i>
+
+      <!-- 点赞 -->
+      <view class="post-behavior-box">
+        <i
+          wx:if="{{userIsList.likes}}"
+          class="iconfont icon-appreciate_fill_light font-22 copyright-color mr-20"
+          bindtap="doLike"
+          data-like="0"
+        ></i>
+        <i
+          wx:else
+          class="iconfont icon-appreciate_light font-22 mr-20"
+          bindtap="doLike"
+          data-like="1"
+        ></i>
+        <view wx:if="{{behaviorTotal.likes > 0}}" class="post-behavior-like copyright-color">
+          {{behaviorTotal.likes}}
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 评论 -->
+  <block wx:if="{{showComment}}">
+    <view
+      wx:if="{{behaviorListsComments && behaviorListsComments.length}}"
+      class="post-comment"
+    >
+      <!-- 评论列表 -->
+      <block wx:for="{{behaviorListsComments}}" wx:key="{{item}}">
+        <view class="post-comment-item">
+          <text
+            class="post-comment-user"
+            bindtap="goCommentView"
+            data-parentid="{{item.comment_id}}"
+          >{{item.author_info.nickname}}</text>
+          <block wx:if="{{item.parent_id}}">
+            <text> 回复 </text>
+            <text class="post-comment-user">{{item.receiver_info.nickname}}</text>
+          </block>
+          <text style="word-break: break-all">：{{item.content}}</text>
+          <text wx:if="{{item.type_id === 1}}"> [图文]</text>
+          <text wx:if="{{item.type_id === 2}}"> [语音]</text>
+        </view>
+      </block>
+
+      <!-- 评论总数 -->
+      <navigator
+        wx:if="{{post.behavior_total.comments > 3}}"
+        class="post-comment-more"
+        url="/pages/post/post?id={{post.thread_id}}"
+      >
+        查看所有{{post.behavior_total.comments}}条评论...
+      </navigator>
+    </view>
+  </block>
+</view>

@@ -1,0 +1,27 @@
+<view class="msg-comment">
+  <view wx:if="{{!!comments.length}}">
+    <view wx:for="{{comments}}" wx:key="{{index}}" wx:if="{{item.thread_info}}" class="bg-white" style="margin-bottom: 10px;">
+      <view class="weui-cells">
+        <view class="weui-cell">
+          <view class="weui-cell__hd mr-20">
+            <image class="msg-comment-avatar" src="{{item.author.avatar}}"></image>
+          </view>
+          <view class="weui-cell__bd">
+            <view class="black font-12 msg-comment-title">{{item.author.nickname}}</view>
+            <view class="grey font-12 mt-5">{{item.format_time}}</view>
+          </view>
+        </view>
+      </view>
+      <view class="msg-comment-container">
+        <view class="msg-comment-txt oneline">{{item.content}}</view>
+        <retweet 
+          detail="{{item}}"
+        />
+      </view>
+    </view>
+  </view>
+  <view class="not-data" wx:if="{{!!loaded && !comments.length}}">
+    <text>您还未收到评论哦</text>
+  </view>
+  <load-more loading="{{loading}}" loaded="{{loaded}}" showtext="{{isShowTxt}}" />
+</view>

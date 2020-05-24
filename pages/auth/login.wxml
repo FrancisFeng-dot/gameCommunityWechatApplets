@@ -1,0 +1,46 @@
+<view class="h-max">
+  <!-- active 0 -->
+  <view class="container-max flex-align-center" wx:if="{{activeIndex === 0}}">
+    <image class="logo" src="{{config.forumLogo}}" />
+    <view class="name">{{config.forumName}}</view>
+    <view class="login-button-wrapper">
+      <button
+        class="sure copyright-text-color copyright-bg-color"
+        open-type="getUserInfo"
+        bindgetuserinfo="login"
+      >
+        登录
+      </button>
+    </view>
+  </view>
+
+  <!-- active 1 -->
+  <!-- <view wx:if="{{activeIndex === 1}}">
+    <view class="title">用户选择</view>
+
+    <view class="form">
+      <view class="label">请输入校验码：</view>
+      <view class="input-wrapper">
+        <input class="input" bindinput="handleInputUserCode" placeholder="校验码" />
+      </view>
+    </view>
+
+    <view class="button-wrapper mb-0">
+      <button
+        class="select-old copyright-color copyright-border-color"
+        bindtap="loginWithOldUser"
+      >确定</button>
+      <button
+        class="mt-20 copyright-bg-color copyright-text-color"
+        bindtap="loginWithNewUser"
+      >无需验证码直接进入</button>
+    </view>
+   
+    <view class="attention">
+      <view>注意事项：</view>
+      <view>1. 输入验证码后H5页面数据与小程序互通;</view>
+      <view>2. 验证码获取方式：请前往H5端获取验证码。路径：进入社区>我的页面>设置;</view>
+      <view class="red">3. 选择机会只有一次，请谨慎选择;</view>
+    </view>
+  </view> -->
+</view>

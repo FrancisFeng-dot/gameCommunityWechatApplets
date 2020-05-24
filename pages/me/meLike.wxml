@@ -1,0 +1,12 @@
+<view>
+  <block wx:for="{{list}}" wx:key="{{item.thread_id}}">
+    <operate-item
+      wx:if="{{item.thread_id}}"
+      mode="post"
+      message="我赞了这篇微帖"
+      post="{{item}}"
+    />
+  </block>
+
+  <load-more loading="{{loading}}" loaded="{{loaded}}" />
+</view>

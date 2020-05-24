@@ -1,0 +1,31 @@
+.box {
+  margin: 30rpx;
+  background-color: #ffffff;
+  box-sizing: border-box;
+  padding: 30rpx;
+  font-size: 14px;
+}
+
+.title {
+  font-size: 16px;
+}
+
+.money {
+  margin-left: 100rpx;
+  font-size:28px;
+}
+
+.money-unit {
+  margin-left: 10rpx;
+}
+
+.money-withdraw {
+  border-bottom: 1px solid #dcdcdc;
+  font-size: 28px;
+  margin-top: 20rpx;
+  line-height: 1.2em;
+}
+
+button[disabled] {
+  color:rgba(255, 255, 255, 0.6) !important;
+}

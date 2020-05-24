@@ -1,0 +1,38 @@
+@import '../../app.wxss';
+
+.block {
+  margin-bottom: 20rpx;
+  background-color: #ffffff;
+  font-size: 14px;
+  padding: 20rpx;
+}
+
+.block .block-item {
+  margin-top: 10rpx;
+  align-items: flex-start;
+  height: 160rpx;
+  overflow: hidden;
+}
+
+.block .user-nickname {
+  font-size: 16px;
+}
+
+.block .user-time {
+  color: #717171;
+}
+
+.block .user-avatar {
+  display: block;
+  height: 160rpx;
+  width: 160rpx;
+}
+
+.block .block-image {
+  width: 160rpx;
+  margin-right: 20rpx;
+}
+
+.block .block-content {
+  flex: auto;
+}

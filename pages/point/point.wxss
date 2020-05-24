@@ -1,0 +1,48 @@
+.header {
+  padding: 100rpx 0 28rpx;
+  background: #fff;
+  text-align: center;
+  border-bottom: 1rpx solid #f1f1f1;
+  position: relative;
+}
+.back-bg {
+  width: 200rpx;
+  height: 64rpx;
+}
+.back-btn {
+  position: absolute;
+  right: 0;
+  top: 22rpx;
+}
+.back-btn text {
+  position: absolute;
+  right: 8rpx;
+  top: 14rpx;
+  color: white;
+} 
+.back-home {
+  width: 30rpx;
+  height: 28rpx;
+}
+.font-35 {
+  font-size: 70rpx;
+}
+.analysis {
+  height: 100rpx;
+  line-height: 100rpx;
+}
+.analysis-item {
+  flex-grow:1;
+  text-align: center;
+  font-size: 28rpx;
+}
+.analysis-item image {
+  width: 32rpx;
+  height: 32rpx;
+  vertical-align: sub;
+  margin-right: 6rpx;
+}
+.block-right {
+  flex:1;
+  justify-content: flex-end;
+}
